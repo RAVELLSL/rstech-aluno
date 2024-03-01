@@ -309,24 +309,24 @@
 
 	@media screen and (max-width: 768px) {
     .login-form {
-        padding: 20px; /* Reduzir o padding para economizar espaço */
-        width: 90%; /* Aumentar a largura do formulário para utilizar mais espaço disponível */
-    }
-
-    .login-form input[type="password"],
-    .login-form input[type="submit"] {
-        font-size: 14px; /* Reduzir o tamanho da fonte para melhor ajuste */
-        padding: 10px; /* Reduzir o padding para os campos de entrada */
-    }
-
-    .show-password-container {
-        margin-bottom: 15px; /* Ajustar o espaçamento abaixo do checkbox 'Mostrar Senha' */
-    }
-
-    .login-form h2 {
-        font-size: 18px; /* Reduzir o tamanho da fonte do título */
+        width: 80vw; /* Define a largura baseada na largura da viewport */
+        height: 80vw; /* Define a altura igual à largura para criar um quadrado */
+        padding: 20px; /* Ajusta o padding conforme necessário */
+        box-sizing: border-box; /* Garante que o padding não adicione largura/altura extra ao elemento */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Centraliza o conteúdo verticalmente no card */
+        align-items: center; /* Centraliza o conteúdo horizontalmente no card */
     }
 }
+
+@media screen and (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* Isso fará com que os cards sejam exibidos em uma única coluna, um abaixo do outro */
+    }
+}
+
+
 	</style>
 	</head>
 	<!-- ESTRUTURA DA PÁGINA DE LOGIN -->
