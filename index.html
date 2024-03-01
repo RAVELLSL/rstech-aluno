@@ -1,10 +1,12 @@
 
+
 	
 	
 	
 	<!DOCTYPE html>
 	<html>
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Área do Aluno</title>
 	<style>
 	/*ESTILOS GERAIS*/
@@ -304,11 +306,27 @@
 	font-size: 12px;
 	}
 	/*TELAS*/
+
 	@media screen and (max-width: 768px) {
-	.grid-container {
-	grid-template-columns: repeat(2, 1fr); /* Ajuste para telas menores */
-	}
-	}
+    .login-form {
+        padding: 20px; /* Reduzir o padding para economizar espaço */
+        width: 90%; /* Aumentar a largura do formulário para utilizar mais espaço disponível */
+    }
+
+    .login-form input[type="password"],
+    .login-form input[type="submit"] {
+        font-size: 14px; /* Reduzir o tamanho da fonte para melhor ajuste */
+        padding: 10px; /* Reduzir o padding para os campos de entrada */
+    }
+
+    .show-password-container {
+        margin-bottom: 15px; /* Ajustar o espaçamento abaixo do checkbox 'Mostrar Senha' */
+    }
+
+    .login-form h2 {
+        font-size: 18px; /* Reduzir o tamanho da fonte do título */
+    }
+}
 	</style>
 	</head>
 	<!-- ESTRUTURA DA PÁGINA DE LOGIN -->
