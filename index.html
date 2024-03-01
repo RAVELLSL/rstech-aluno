@@ -1,7 +1,3 @@
-
-
-	
-	
 	
 	<!DOCTYPE html>
 	<html>
@@ -326,6 +322,19 @@
     }
 }
 
+@media screen and (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* Faz com que os cards sejam exibidos em uma única coluna */
+        gap: 30px; /* Aumenta o espaçamento entre os cards */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .modal-content {
+        max-height: 90%; /* Aumenta a altura máxima do modal */
+        overflow-y: auto; /* Garante a rolagem vertical se o conteúdo exceder a altura */
+    }
+}
 
 	</style>
 	</head>
