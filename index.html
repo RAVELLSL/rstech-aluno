@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -104,15 +105,19 @@ button:hover,
 
 .modal-content {
     background-color: #ffffff;
-    margin: 10% auto;
     padding: 20px;
     border-radius: 8px;
     width: 80%;
     max-width: 500px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    max-height: 80vh;
     overflow-y: auto;
-    position: relative; /* Adicionado para suporte ao posicionamento absoluto do .close */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: fixed; /* Atualizado de 'absolute' para 'fixed' */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centraliza o modal */
 }
+
 
 .close {
     color: #aaaaaa;
@@ -446,7 +451,7 @@ document.addEventListener('DOMContentLoaded', function() {
             studyLink: 'https://drive.google.com/file/d/1SxDkffCabGUqS6fbZmy1FIVe10kuQKe9/view',
             chapters: [
             { title: 'Introdução', audioLink: 'https://drive.google.com/file/d/15aAFITipg-szbBIlbDmfMJ1EaZIygm9e/preview' },
-	{ title: 'Definições e Conceitos Fundamentais <br> da Computação Quântica', audioLink: 'https://drive.google.com/file/d/16ppER34qTxnnMiEwavgYPJhyR13BH4k-/preview' },
+	{ title: 'Definições e Conceitos Fundamentais da Computação Quântica', audioLink: 'https://drive.google.com/file/d/16ppER34qTxnnMiEwavgYPJhyR13BH4k-/preview' },
 	{ title: 'Princípios Fundamentais', audioLink: 'https://drive.google.com/file/d/1pvfc-XV_8iLR3Wmw3V-znd6cdtUxnO6n/preview' },
 	{ title: 'Tipos de Computadores', audioLink: 'https://drive.google.com/file/d/1RjGWf7SELKhqAN_jWHGlyyKBRXbiKmqk/preview' },
 	{ title: 'Feitos Importantes dos Computadores Quânticos', audioLink: 'https://drive.google.com/file/d/1elFCDUbbeEJ3w0KKSb-oVGm9CoMS66bj/preview' },
