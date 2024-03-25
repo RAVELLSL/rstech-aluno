@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -57,8 +56,23 @@ h1 {
 }
 
 .card .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Empurra o botão para baixo */
+    height: calc(100% - 326px); /* Altura total do card menos a altura da imagem */
     padding: 15px;
 }
+
+.card .content h3 {
+    min-height: 64px; /* Ajuste a altura mínima conforme necessário para acomodar títulos maiores */
+    margin-bottom: 10px; /* Adiciona uma margem abaixo do título para separação */
+}
+
+.card .content p {
+    text-align: justify;
+    flex-grow: 1; /* Faz com que a descrição ocupe todo o espaço vertical disponível */
+}
+
 
 button,
 .study-link {
@@ -85,9 +99,7 @@ button:hover,
 }
 
 .card button {
-    width: auto;
-    margin: 10px auto;
-    display: block;
+    align-self: center; /* Centraliza o botão no card */
 }
 
 .modal {
@@ -214,9 +226,9 @@ button:hover,
     <div class="card">
         <img src="https://s2-epocanegocios.glbimg.com/ejKjJ3MYj1Wi7YyW623ExJPTW4s=/0x0:620x350/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e536e40f1baf4c1a8bf1ed12d20577fd/internal_photos/bs/2022/c/z/4MlgZMQ3i9a82UldjOcA/2022-08-19-gettyimages-1393548977-1.jpeg" alt="Pontos de Ruptura Tecnológica na 5ª Revolução Industrial">
         <div class="content">
-            <h3>Pontos de Ruptura Tecnológica na 5ª Revolução Industrial</h3>
-            <p>Material impresso disponível. Áudio explicativo da temática em breve!</p>            
-            <button class="myBtn" data-title="Pontos de Ruptura Tecnológica na 5ª Revolução Industrial">Acessar</button>
+            <h3>Ruptura Tecnológica na 5ª Revolução Industrial</h3>
+            <p>Rupturas tecnológicas na 5ª Revolução Industrial representam mudanças abruptas e transformadoras impulsionadas por avanços em diversas áreas. Essas rupturas redefinem paradigmas industriais, criando novas oportunidades e desafios. O surgimento dessas tecnologias disruptivas está moldando uma nova era de inovação e progresso tecnológico.</p>            
+            <button class="myBtn" data-title="Ruptura Tecnológica na 5ª Revolução Industrial">Acessar</button>
         </div>
     </div>
     
@@ -225,7 +237,7 @@ button:hover,
         <img src="https://img.freepik.com/fotos-premium/um-laptop-com-a-palavra-mac-na-tela_905510-7227.jpg" alt="Sistema de Classificação Computacional">
         <div class="content">
             <h3>Sistema de Classificação Computacional</h3>
-            <p>Material impresso disponível. Áudio explicativo da temática em breve!</p>            
+            <p>Os sistemas de classificação computacional, ao longo da história, evoluíram junto com os diferentes tipos de computadores, desde os clássicos até os quânticos. Estamos vivenciando uma nova fase onde diferentes e inovadores tipos de computador não necessários para solucionar diversas situações em nosso cotidiano.</p>            
             <button class="myBtn" data-title="Sistema de Classificação Computacional">Acessar</button>
         </div>
     </div>
@@ -235,7 +247,7 @@ button:hover,
         <img src="https://img.olhardigital.com.br/wp-content/uploads/2023/07/cerebro_chip.jpg" alt="A Crise de Escassez na Indústria de Chips">
         <div class="content">
             <h3>A Crise de Escassez na Indústria de Chips</h3>
-            <p>Material impresso disponível. Áudio explicativo da temática em breve!</p>            
+            <p>A crise de escassez na indústria de chips é um fenômeno global que afeta diversos setores, incluindo eletrônicos de consumo, automóveis e dispositivos médicos. A demanda crescente por semicondutores, combinada com interrupções na cadeia de suprimentos e capacidade de produção limitada, tem levado a atrasos na entrega e aumento dos preços dos produtos.</p>            
             <button class="myBtn" data-title="A Crise de Escassez na Indústria de Chips">Acessar</button>
         </div>
     </div>
@@ -245,7 +257,7 @@ button:hover,
         <img src="https://blog.orientu.com.br/wp-content/uploads/2020/11/o-que-%C3%A9-inteligencia-artificial.jpeg" alt="Computação Preditiva">
         <div class="content">
             <h3>Computação Preditiva</h3>
-            <p>Material impresso disponível. Áudio explicativo da temática em breve!</p>            
+            <p>A Computação preditiva é uma área da ciência da computação que utiliza algoritmos e modelos estatísticos para prever eventos futuros com base em dados históricos. Essa técnica é amplamente aplicada em diversas áreas, como finanças, saúde e marketing, para tomar decisões mais informadas e antecipar tendências. Ao analisar padrões e correlações nos dados, a computação preditiva ajuda a otimizar processos e identificar oportunidades.</p>            
             <button class="myBtn" data-title="Computação Preditiva">Acessar</button>
         </div>
     </div>
@@ -255,7 +267,7 @@ button:hover,
         <img src="https://umlivropordia.com.br/wp-content/uploads/2023/02/Um-livro-por-dia-1024x674.webp" alt="Teorias Conspiratórias da Internet">
         <div class="content">
             <h3>Teorias Conspiratórias da Internet</h3>
-            <p>Material impresso disponível. Áudio explicativo da temática em breve!</p>            
+            <p>Teorias conspiratórias da internet são narrativas que ganham tração online, muitas vezes sem evidências sólidas, sugerindo que eventos importantes são resultado de conspirações secretas. Elas abrangem uma ampla gama de tópicos, desde governos ocultando a verdade até teorias sobre alienígenas e eventos históricos controversos, influenciando frequentemente a opinião pública e o debate online.</p>            
             <button class="myBtn" data-title="Teorias Conspiratórias da Internet">Acessar</button>
         </div>
     </div>
@@ -359,10 +371,10 @@ document.addEventListener('DOMContentLoaded', function() {
     var chapters = {
 
         
-        'Pontos de Ruptura Tecnológica na 5ª Revolução Industrial': {
+        'Ruptura Tecnológica na 5ª Revolução Industrial': {
             studyLink: 'https://drive.google.com/file/d/1ZMm2tBg7pd9y2S39J3XUaRfkbQ81oLJd/view',
             chapters: [
-            
+            { title: 'Material impresso disponível. Áudio explicativo da temática em breve!'}
     ]
 },
         
@@ -370,7 +382,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'Sistema de Classificação Computacional': {
             studyLink: 'https://drive.google.com/file/d/1dalmsrb9wrKgk40Mq__cN8hfjeskdyUg/view',
             chapters: [
-            
+            { title: 'Material impresso disponível. Áudio explicativo da temática em breve!'}
     ]
 },
 
@@ -378,7 +390,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'A Crise de Escassez na Indústria de Chips': {
             studyLink: 'https://drive.google.com/file/d/19QLf2eIOPWa4CyBudUMtJZRQz2dORHO1/view',
             chapters: [
-            
+            { title: 'Material impresso disponível. Áudio explicativo da temática em breve!'}
     ]
 },
        
@@ -386,7 +398,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'Computação Preditiva': {
             studyLink: 'https://drive.google.com/file/d/1ben6DdeaT2NwWdcjdxF1ymmYuk8vpE_o/view',
             chapters: [
-            
+            { title: 'Material impresso disponível. Áudio explicativo da temática em breve!'}
     ]
 },
         
@@ -394,7 +406,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'Teorias Conspiratórias da Internet': {
             studyLink: 'https://drive.google.com/file/d/1UolIfCRJ-fL81lq1YegxKxMYO0NQBbjh/view',
             chapters: [
-            
+            { title: 'Material impresso disponível. Áudio explicativo da temática em breve!'}
     ]
 },
      
