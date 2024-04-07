@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -302,8 +301,34 @@ button:hover,
         margin: 10px auto;
     }
 
-    button,
-    .study-link {
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-wrapper {
+        order: 1;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: 0 50px 0 0px; /* Aumenta o padding à direita, deslocando a barra de busca para a esquerda */
+        box-sizing: border-box;
+    }
+
+    .search-container {
+        flex-grow: 1;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .header-link {
+        order: 2;
+        width: 100%;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    button, .study-link {
         padding: 12px 20px;
     }
 
@@ -317,33 +342,14 @@ button:hover,
         width: 90%;
         max-width: none;
     }
+
+    .footer {
+        text-align: center;
+        width: 100%;
+        padding: 10px 0;
+    }
 }
 
-.audio-player {
-    margin-bottom: 10px;
-}
-
-.audio-player audio {
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    outline: none;
-}
-
-.audio-title {
-    margin-top: 10px;
-    font-weight: bold;
-    text-align: center;
-}
-
-.footer {
-    text-align: center;
-    font-weight: bold;
-    width: 100%;
-    position: relative;
-    margin-top: auto;
-    margin-bottom: 0;
-}
     </style>
 </head>
 
