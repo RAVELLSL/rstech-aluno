@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -6,351 +7,315 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Área do Aluno</title>
     <style>
-            /* Estilos CSS */
-body {
-    font-family: 'Arial', sans-serif;
-    color: #333;
-    line-height: 1.6;
-    background-image: url('https://media.tenor.com/wngVe_Erkh8AAAAC/blue-white.gif');
-    background-size: cover;
-    margin: 0;
-    padding: 8px;
-}
-
-header {
-    background: linear-gradient(to bottom, #555555, #000000);
-    padding: 1px 0;
-    text-align: center;
-}
-
-.no-style-link {
-    text-decoration: none; /* Remove sublinhado */
-    color: inherit; /* Mantém a cor padrão do texto */
-}
-
-.no-style-link:hover {
-    text-decoration: none; /* Remove sublinhado ao passar o mouse */
-    color: inherit; /* Mantém a cor padrão do texto ao passar o mouse */
-}
-
-.header-buttons {
-    margin-top: 10px; /* Adiciona um espaço superior */
-}
-
-.header-buttons a {
-    text-decoration: none;
-    color: #ffffff; /* Definindo a cor branca para os links */
-    margin-right: 800px; /* Ajusta o espaçamento entre os links */
-    font-size: 18px; /* Ajusta o tamanho da fonte */
-    font-weight: bold; /* Define a fonte em negrito */
-    letter-spacing: 1px; /* Adiciona espaçamento entre as letras */
-    text-align: center;
-}
-
-.header-buttons a:last-child {
-    margin-right: 0; /* Remove o espaçamento à direita do último link */
-}
-
-.header-buttons a:hover {
-    color: #ffffff; /* Mantendo a cor branca ao passar o mouse */
-}
-
-h1 {
-    color: #ffffff;
-}
-
-header {
-    text-align: center;
-    color: white;
-    padding: 5px 0; /* Aumente os valores de padding para aumentar a altura */
-}
-
-.header-container {
-    display: flex;
-    justify-content: space-between; /* Isto irá distribuir o espaço igualmente */
-    align-items: center; /* Isto irá centralizar os itens verticalmente */
-    padding: 0 10px; /* Ajuste o preenchimento conforme necessário */
-}
-
-.header-link {
-    color: white;
-    text-decoration: none;
-    font-size: 18px; /* Ajuste o tamanho da fonte conforme necessário */
-}
-
-/* Novo wrapper para alinhar a barra de busca e o botão */
-.search-wrapper {
-    display: flex; /* Flex container */
-    justify-content: space-between; /* Espaçamento entre elementos filhos */
-    align-items: center; /* Centraliza verticalmente */
-    max-width: 500px; /* Limita a largura máxima do wrapper */
-    margin: 0 auto; /* Centraliza o wrapper horizontalmente */
-}
-
-.search-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end; /* Align to the end side of the header */
-}
-
-.search-input {
-    padding: 10px;
-    font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 20px 0 0 20px; /* Rounded left corners */
-    outline: none;
-}
-
-.search-button {
-    background-color: #333;
-    border: none;
-    border-radius: 0 20px 20px 0; /* Rounded right corners */
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-}
-
-.search-button svg {
-    fill: white; /* Cor do ícone da lupa */
-}
-
-/*Estilos da tabela exibida no modal de busca */
-#searchModal .modal-content {
-    /* Existing styles */
-}
-
-#searchModal table {
-    width: 100%; /* Full width of the modal content */
-    border-collapse: collapse; /* Collapse borders */
-    margin-top: 20px; /* Add some space above the table */
-}
-
-#searchModal th,
-#searchModal td {
-    text-align: center; /* Align text to the left */
-    padding: 12px; /* Add padding for table cells */
-    border-bottom: 1px solid #ddd; /* Light border for each row */
-}
-
-#searchModal th {
-    background-color: #333; /* Dark background for header */
-    color: white; /* White text for header */
-}
-
-#searchModal tr:hover {
-    background-color: #f5f5f5; /* Light background on row hover */
-}
-
-#searchModal tr:nth-child(even) {
-    background-color: #f9f9f9; /* Zebra striping for rows */
-}
-
-#searchModal a {
-    color: #000000; /* Define a cor do link "Acessar" para branca, correspondendo à cor dos links do menu */
-    text-decoration: none; /* No underline on links */
-}
-
-#searchModal a:hover {
-    text-decoration: underline; /* Underline on hover */
-}
-
-
-.container {
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-.card {
-    background-color: #ffffff;
-    margin: 10px;
-    width: calc(33.333% - 20px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.3s ease-in-out;
-    text-align: center;            
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-.card img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-}
-
-.card .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Empurra o botão para baixo */
-    height: calc(100% - 326px); /* Altura total do card menos a altura da imagem */
-    padding: 15px;
-}
-
-.card .content h3 {
-    min-height: 64px; /* Ajuste a altura mínima conforme necessário para acomodar títulos maiores */
-    margin-bottom: 10px; /* Adiciona uma margem abaixo do título para separação */
-}
-
-.card .content p {
-    text-align: justify;
-    flex-grow: 1; /* Faz com que a descrição ocupe todo o espaço vertical disponível */
-}
-
-button,
-.study-link {
-    background: linear-gradient(to bottom, #555555, #000000);
-    border: none;
-    color: #ffffff;
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: 500;
-    border-radius: 30px;
-    cursor: pointer;
-    outline: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    text-decoration: none;
-    display: inline-block;
-}
-
-button:hover,
-.study-link:hover {
-    background-image: linear-gradient(to right, #2575fc 0%, #6a11cb 100%);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-    transform: translateY(-2px);
-}
-
-.card button {
-    align-self: center; /* Centraliza o botão no card */
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.6);
-    text-align: center;
-}
-
-.modal-content {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    width: 90%; /* Ajuste a largura relativa conforme necessário */
-    max-width: 600px; /* Aumente a largura máxima */
-    max-height: 80vh;
-    overflow-y: auto;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-
-.close {
-    color: #aaaaaa;
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.modal-header {
-    padding-top: 30px; /* Adicionado para garantir espaço para o .close */
-}
-
-.modal-body {
-    text-align: center; /* Estilos para centralizar o conteúdo do modal */
-}
-
-#studyLink {
-    margin-right: 20px; /* Ajuste o valor da margem conforme necessário */
-}
-
-@media screen and (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
-
-    .card {
-        width: auto;
-        margin: 10px auto;
-    }
-
-    .header-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .search-wrapper {
-        order: 1;
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        padding: 0 50px 0 0px; /* Aumenta o padding à direita, deslocando a barra de busca para a esquerda */
-        box-sizing: border-box;
-    }
-
-    .search-container {
-        flex-grow: 1;
-        max-width: 500px;
-        margin: 0 auto;
-    }
-
-    .header-link {
-        order: 2;
-        width: 100%;
-        text-align: center;
-        margin: 10px 0;
-    }
-
-    button, .study-link {
-        padding: 12px 20px;
-    }
-
-    .close {
-        top: 10px;
-        right: 10px;
-        font-size: 24px;
-    }
-
-    .modal-content {
-        width: 90%;
-        max-width: none;
-    }
-
-    .footer {
-        text-align: center;
-        width: 100%;
-        padding: 10px 0;
-    }
-}
-
+        /* Estilos CSS gerais */
+    
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-image: url('https://media.tenor.com/wngVe_Erkh8AAAAC/blue-white.gif');
+            background-size: cover;
+            margin: 0;
+            padding: 8px;
+        }
+    
+        header {
+            background: linear-gradient(to bottom, #555555, #000000);
+            padding: 1px 0;
+            text-align: center;
+        }
+    
+        .no-style-link {
+            text-decoration: none; /* Remove sublinhado */
+            color: inherit; /* Mantém a cor padrão do texto */
+        }
+    
+        .no-style-link:hover {
+            text-decoration: none; /* Remove sublinhado ao passar o mouse */
+            color: inherit; /* Mantém a cor padrão do texto ao passar o mouse */
+        }
+    
+        .header-buttons {
+            margin-top: 10px; /* Adiciona um espaço superior */
+        }
+    
+        .header-buttons a {
+            text-decoration: none;
+            color: #ffffff; /* Definindo a cor branca para os links */
+            margin-right: 800px; /* Ajusta o espaçamento entre os links */
+            font-size: 18px; /* Ajusta o tamanho da fonte */
+            font-weight: bold; /* Define a fonte em negrito */
+            letter-spacing: 1px; /* Adiciona espaçamento entre as letras */
+            text-align: center;
+        }
+    
+        .header-buttons a:last-child {
+            margin-right: 0; /* Remove o espaçamento à direita do último link */
+        }
+    
+        .header-buttons a:hover {
+            color: #ffffff; /* Mantendo a cor branca ao passar o mouse */
+        }
+    
+        h1 {
+            color: #ffffff;
+        }
+    
+        header {
+            text-align: center;
+            color: white;
+            padding: 5px 0; /* Aumente os valores de padding para aumentar a altura */
+        }
+    
+        .header-container {
+            display: flex;
+            justify-content: space-between; /* Isto irá distribuir o espaço igualmente */
+            align-items: center; /* Isto irá centralizar os itens verticalmente */
+            padding: 0 10px; /* Ajuste o preenchimento conforme necessário */
+        }
+    
+        .header-link {
+            color: white;
+            text-decoration: none;
+            font-size: 18px; /* Ajuste o tamanho da fonte conforme necessário */
+        }
+    
+        /* Novo wrapper para alinhar a barra de busca e o botão */
+        .search-wrapper {
+            display: flex; /* Flex container */
+            justify-content: space-between; /* Espaçamento entre elementos filhos */
+            align-items: center; /* Centraliza verticalmente */
+            max-width: 500px; /* Limita a largura máxima do wrapper */
+            margin: 0 auto; /* Centraliza o wrapper horizontalmente */
+        }
+    
+        .search-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end; /* Align to the end side of the header */
+        }
+    
+        .search-input {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 20px 0 0 20px; /* Rounded left corners */
+            outline: none;
+        }
+    
+        .search-button {
+            background-color: #333;
+            border: none;
+            border-radius: 0 20px 20px 0; /* Rounded right corners */
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+    
+        .search-button svg {
+            fill: white; /* Cor do ícone da lupa */
+        }
+    
+        /* Estilos da tabela exibida no modal de busca */
+        #searchModal .modal-content {
+            /* Existing styles */
+        }
+    
+        #searchModal table {
+            width: 100%; /* Full width of the modal content */
+            border-collapse: collapse; /* Collapse borders */
+            margin-top: 20px; /* Add some space above the table */
+        }
+    
+        #searchModal th,
+        #searchModal td {
+            text-align: center; /* Align text to the left */
+            padding: 12px; /* Add padding for table cells */
+            border-bottom: 1px solid #ddd; /* Light border for each row */
+        }
+    
+        #searchModal th {
+            background-color: #333; /* Dark background for header */
+            color: white; /* White text for header */
+        }
+    
+        #searchModal tr:hover {
+            background-color: #f5f5f5; /* Light background on row hover */
+        }
+    
+        #searchModal tr:nth-child(even) {
+            background-color: #f9f9f9; /* Zebra striping for rows */
+        }
+    
+        #searchModal a {
+            color: #000000; /* Define a cor do link "Acessar" para branca, correspondendo à cor dos links do menu */
+            text-decoration: none; /* No underline on links */
+        }
+    
+        #searchModal a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+    
+        .container {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+    
+        .card {
+            background-color: #ffffff;
+            margin: 10px;
+            width: calc(33.333% - 20px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+            text-align: center;            
+        }
+    
+        .card:hover {
+            transform: translateY(-5px);
+        }
+    
+        .card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+    
+        .card .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Empurra o botão para baixo */
+            height: calc(100% - 326px); /* Altura total do card menos a altura da imagem */
+            padding: 15px;
+        }
+    
+        .card .content h3 {
+            min-height: 64px; /* Ajuste a altura mínima conforme necessário para acomodar títulos maiores */
+            margin-bottom: 10px; /* Adiciona uma margem abaixo do título para separação */
+        }
+    
+        .card .content p {
+            text-align: justify;
+            flex-grow: 1; /* Faz com que a descrição ocupe todo o espaço vertical disponível */
+        }
+    
+        button,
+        .study-link {
+            background: linear-gradient(to bottom, #555555, #000000);
+            border: none;
+            color: #ffffff;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 30px;
+            cursor: pointer;
+            outline: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+    
+        button:hover,
+        .study-link:hover {
+            background-image: linear-gradient(to right, #2575fc 0%, #6a11cb 100%);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+    
+        .card button {
+            align-self: center; /* Centraliza o botão no card */
+        }
+    
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            text-align: center;
+        }
+    
+        .modal-content {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%; /* Ajuste a largura relativa conforme necessário */
+            max-width: 600px; /* Aumente a largura máxima */
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    
+        .close {
+            color: #aaaaaa;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    
+        .modal-header {
+            padding-top: 30px; /* Adicionado para garantir espaço para o .close */
+        }
+    
+        .modal-body {
+            text-align: center; /* Estilos para centralizar o conteúdo do modal */
+            display: flex; /* Torna-o um contêiner flexível */
+            flex-direction: row; /* Isso permite que os botões fiquem lado a lado */
+            align-items: center; /* Centraliza os itens horizontalmente */
+            justify-content: center; /* Centraliza os itens verticalmente */
+            flex-wrap: wrap; /* Permite que os botões quebrem para a linha seguinte se não houver espaço suficiente */
+        }
+    
+        .modal-body .study-link {
+            margin: 10px; /* Espaçamento entre os botões */
+            padding: 12px 24px; /* Aumenta o padding para uma área de clique maior */
+            min-width: 150px; /* Define uma largura mínima para os botões */
+            box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura total */
+            text-align: center; /* Centraliza o texto dentro do botão */
+        }
+    
+        /* Se o espaço for pequeno, eles vão se ajustar um abaixo do outro */
+        @media (max-width: 400px) {
+            .modal-body .study-link {
+                flex-basis: 100%; /* Define a base para cada botão como 100% para que eles ocupem toda a largura quando houver pouco espaço */
+            }
+        }
+    
+        .footer {
+            text-align: center;
+            width: 100%;
+            padding: 10px 0;
+        }
     </style>
+    
+       
+    
 </head>
 
 <body>
