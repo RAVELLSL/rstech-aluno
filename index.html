@@ -36,7 +36,7 @@
         }
     
         .header-buttons {
-            margin-top: 10px; /* Adiciona um espaço superior */
+            margin-top: 20px; /* Adiciona um espaço superior */
         }
     
         .header-buttons a {
@@ -300,6 +300,34 @@
             text-align: center; /* Centraliza o texto dentro do botão */
         }
     
+        /* Media Queries para dispositivos menores */
+@media (max-width: 768px) {
+    .header-buttons a {
+        margin-right: 10px; /* Margem menor para dispositivos menores */
+    }
+
+    .card {
+        width: 100%; /* Faz com que os cards ocupem a largura total em telas menores */
+        margin: 10px 0; /* Ajusta as margens para espaçamento vertical */
+    }
+
+    .container {
+        padding: 10px; /* Reduz o padding do container para mais espaço */
+    }
+
+    .header-container, .search-wrapper {
+        flex-direction: column; /* Empilha os elementos verticalmente */
+    }
+
+    .header-link, .search-container {
+        margin-bottom: 10px; /* Adiciona uma margem inferior para separação */
+    }
+
+    .search-input, .search-button {
+        width: 100%; /* Faz com que a barra de busca e o botão ocupem a largura total */
+    }
+}
+        
         /* Se o espaço for pequeno, eles vão se ajustar um abaixo do outro */
         @media (max-width: 400px) {
             .modal-body .study-link {
