@@ -298,7 +298,8 @@
             box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura total */
             text-align: center; /* Centraliza o texto dentro do botão */
         }
-    
+
+
         /* Media Queries para dispositivos menores */
 @media (max-width: 768px) {
     .header-buttons a {
@@ -834,10 +835,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         var iframe = document.createElement('iframe');
         iframe.src = chapter.audioLink;
-        iframe.width = "100%";
+        iframe.width = "108%";
         iframe.height = "50";
         iframe.frameBorder = "0";
-        iframe.allow = "autoplay";
+        iframe.allow = "autoplay";        
 
         audioPlayer.appendChild(iframe);
         chapterWrapper.appendChild(audioTitle);
@@ -891,4 +892,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </body>
 </html>
-
