@@ -327,15 +327,18 @@
     }
 
     /* Ajustes para os iframes dentro dos modais */
+    .audio-player {
+        display: flex; /* Faz do .audio-player um flex container */
+        justify-content: center; /* Centraliza o filho (iframe) horizontalmente */
+        align-items: center; /* Centraliza o filho (iframe) verticalmente */
+        overflow: hidden; /* Previne o vazamento de conteúdo fora do contêiner */
+    }
+    
     .audio-player iframe {
-        .audio-player iframe {
         width: 120%; /* Mantém a largura do iframe como 120% */
         height: 50px; /* Ajusta a altura conforme necessário */
-        position: relative; /* Permite o ajuste do posicionamento */
-        left: 50%; /* Desloca para a esquerda baseado no tamanho do contêiner */
-        transform: translateX(-50%); /* Corrige o deslocamento, centralizando o iframe */
-        margin: auto;
-        display: block;
+        margin-left: -10%; /* Compensa o excesso de largura para manter o iframe centralizado */
+        margin-right: -10%; /* Compensa o excesso de largura para manter o iframe centralizado */
     }
 }
 
