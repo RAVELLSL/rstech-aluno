@@ -299,7 +299,7 @@
             text-align: center; /* Centraliza o texto dentro do botão */
         }
 
-       /* Media Queries para dispositivos menores */
+        /* Media Queries para dispositivos menores */
 @media (max-width: 768px) {
     .header-buttons a {
         margin-right: 10px; /* Margem menor para dispositivos menores */
@@ -311,11 +311,8 @@
     }
 
     .container {
-        .container {
-                width: 90%;
-                padding: 10px;
-            }
-        }
+        padding: 10px;
+    }
 
     .header-container, .search-wrapper {
         flex-direction: column; /* Empilha os elementos verticalmente */
@@ -329,24 +326,24 @@
         width: 100%; /* Faz com que a barra de busca e o botão ocupem a largura total */
     }
 
-    .audio-player {
-    display: block;
-    margin: 10px 5px; /* Centraliza o player de áudio horizontalmente e adiciona margem para separação */
-    width: 90%; /* Define a largura do player de áudio */
-}
+    /* Ajustes para os iframes dentro dos modais */
     .audio-player iframe {
         width: 100%; /* Ajusta para que o iframe ocupe toda a largura do container */
-        height: auto; /* Ajusta a altura para que seja proporcional ao conteúdo */
+        height: 40px; /* Reduz a altura do iframe */
     }
 }
 
-/* Se necessário, adicione uma regra específica para dispositivos ainda menores */
+/* Regras específicas para dispositivos ainda menores */
 @media (max-width: 400px) {
     .audio-player iframe {
         width: 100%; /* Garante que o iframe ocupe toda a largura em dispositivos muito pequenos */
         /* Não há necessidade de repetir a regra 'height' se ela for igual à regra acima */
     }
 }
+
+
+
+
     </style>
     
        
