@@ -300,7 +300,7 @@
         }
 
 
-        /* Media Queries para dispositivos menores */
+       /* Media Queries para dispositivos menores */
 @media (max-width: 768px) {
     .header-buttons a {
         margin-right: 10px; /* Margem menor para dispositivos menores */
@@ -326,20 +326,24 @@
     .search-input, .search-button {
         width: 100%; /* Faz com que a barra de busca e o botão ocupem a largura total */
     }
+
+    .audio-player {
+        display: flex;
+        justify-content: center; /* Centraliza o iframe horizontalmente */
+    }
+
+    .audio-player iframe {
+        width: 100%; /* Adapta a largura do iframe ao contêiner */
+        max-width: 400px; /* Limita a largura máxima do iframe */
+    }
 }
-        
-        /* Se o espaço for pequeno, eles vão se ajustar um abaixo do outro */
-        @media (max-width: 400px) {
-            .modal-body .study-link {
-                flex-basis: 100%; /* Define a base para cada botão como 100% para que eles ocupem toda a largura quando houver pouco espaço */
-            }
-        }
-    
-        .footer {
-            text-align: center;
-            width: 100%;
-            padding: 10px 0;
-        }
+
+@media (max-width: 400px) {
+    .modal-body .study-link {
+        flex-basis: 100%; /* Define a base para cada botão como 100% para que eles ocupem toda a largura quando houver pouco espaço */
+    }
+}
+
     </style>
     
        
