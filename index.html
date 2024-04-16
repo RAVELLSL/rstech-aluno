@@ -329,13 +329,12 @@
     .audio-player {
         display: flex;
         justify-content: center; /* Centraliza o iframe horizontalmente */
-        padding-right: 20px; /* Adiciona padding à direita para deslocar o iframe um pouco para a esquerda */
-        margin: 0 20px; /* Aumenta as margens laterais para 20px cada lado */
+        padding: 0 15px; /* Adiciona padding nas laterais para evitar que o iframe encoste nos limites do modal */
     }
 
     .audio-player iframe {
-        width: calc(100% + 40px); /* Estende a largura do iframe para mais do que 100% do seu contêiner, compensado pelas margens negativas */
-        margin-left: -20px; /* Ajusta para a esquerda para utilizar plenamente o espaço disponível */
+        width: calc(100% - 30px); /* Calcula a largura para ser um pouco menor que o container, considerando o padding */
+        max-width: none; /* Remove restrições de max-width para permitir expansão */
     }
 }
 
