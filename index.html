@@ -299,8 +299,7 @@
             text-align: center; /* Centraliza o texto dentro do botão */
         }
 
-
-      /* Media Queries para dispositivos menores */
+        /* Media Queries para dispositivos menores */
 @media (max-width: 768px) {
     .header-buttons a {
         margin-right: 10px; /* Margem menor para dispositivos menores */
@@ -331,11 +330,12 @@
         display: flex;
         justify-content: center; /* Centraliza o iframe horizontalmente */
         padding-right: 20px; /* Adiciona padding à direita para deslocar o iframe um pouco para a esquerda */
+        margin: 0 10px; /* Adiciona margens laterais para evitar que o iframe toque os limites da tela */
     }
 
     .audio-player iframe {
         width: 100%; /* Adapta a largura do iframe ao contêiner */
-        max-width: 400px; /* Limita a largura máxima do iframe */
+        max-width: 450px; /* Aumenta a largura máxima do iframe enquanto mantém margens laterais */
     }
 }
 
@@ -345,6 +345,7 @@
     }
 }
 
+      
 
     </style>
     
