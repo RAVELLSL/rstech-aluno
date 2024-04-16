@@ -311,8 +311,11 @@
     }
 
     .container {
-        padding: 10px; /* Reduz o padding do container para mais espaço */
-    }
+        .container {
+                width: 90%;
+                padding: 10px;
+            }
+        }
 
     .header-container, .search-wrapper {
         flex-direction: column; /* Empilha os elementos verticalmente */
@@ -327,10 +330,10 @@
     }
 
     .audio-player {
-        display: flex;
-        justify-content: center; /* Centraliza o iframe horizontalmente */
-        padding: 0; /* Remove padding para permitir que o iframe ocupe mais espaço */
-    }
+    display: block;
+    margin: 10px auto; /* Centraliza o player de áudio horizontalmente e adiciona margem para separação */
+    width: 90%; /* Define a largura do player de áudio */
+}
     .audio-player iframe {
         width: 100%; /* Ajusta para que o iframe ocupe toda a largura do container */
         height: 20%; /* Ajusta a altura para que seja proporcional ao conteúdo */
