@@ -328,9 +328,14 @@
 
     /* Ajustes para os iframes dentro dos modais */
     .audio-player iframe {
-        width: 120%; /* Ajusta para que o iframe ocupe toda a largura do container */
-        height: 50px; /* Reduz a altura do iframe */
-        margin: auto; /* Centraliza horizontalmente */
+        .audio-player iframe {
+        width: 120%; /* Mantém a largura do iframe como 120% */
+        height: 50px; /* Ajusta a altura conforme necessário */
+        position: relative; /* Permite o ajuste do posicionamento */
+        left: 50%; /* Desloca para a esquerda baseado no tamanho do contêiner */
+        transform: translateX(-50%); /* Corrige o deslocamento, centralizando o iframe */
+        margin: auto;
+        display: block;
     }
 }
 
