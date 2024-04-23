@@ -301,7 +301,7 @@
         }
 
        
-        /* Media Queries para dispositivos menores */
+       /* Media Queries para dispositivos menores */
 @media (max-width: 768px) {
     .header-buttons a {
         margin-right: 10px; /* Margem menor para dispositivos menores */
@@ -337,10 +337,8 @@
     }
     
     .audio-player iframe {
-        width: 115%; /* Mantém a largura do iframe como 115% */
-        height: 50px; /* Ajusta a altura conforme necessário */
-        margin-left: -6.5%; /* Compensa o excesso de largura para manter o iframe centralizado */
-        margin-right: -6.5%; /* Compensa o excesso de largura para manter o iframe centralizado */
+        width: 100%; /* Ajuste para que o iframe ocupe exatamente a largura do contêiner */
+        height: 50px; /* Manter a altura */
     }
 }
 
@@ -351,9 +349,6 @@
         /* Não há necessidade de repetir a regra 'height' se ela for igual à regra acima */
     }
 }
-
-
-
 
     </style>
     
@@ -867,7 +862,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         var iframe = document.createElement('iframe');
         iframe.src = chapter.audioLink;
-        iframe.style.width = "450px"; // Ajusta para preencher o espaço do contêiner
+        iframe.style.width = "350px"; // Ajusta para preencher o espaço do contêiner
         iframe.style.height = "50px"; // Define a altura fixa
         iframe.frameBorder = "0";
         iframe.allow = "autoplay";  
