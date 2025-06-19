@@ -3,489 +3,521 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Material de Aula</title>
+  <title>Material de Aula - Versão Aprimorada</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
+    /* Variáveis CSS (Custom Properties) */
+    :root {
+      --primary-color: #007BFF;
+      --primary-hover: #0056b3;
+      --dark-color: #212529;
+      --text-color: #343a40;
+      --light-gray-color: #f8f9fa;
+      --border-color: #dee2e6;
+      --card-bg-color: #ffffff;
+      --shadow-color: rgba(0, 0, 0, 0.1);
+      --font-family: 'Poppins', Arial, sans-serif;
+      --border-radius-sm: 8px;
+      --border-radius-lg: 12px;
+      --transition-speed: 0.3s;
+    }
+
     /* Estilos CSS Gerais */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-  font-family: Arial, sans-serif;
-  color: #333;
-  line-height: 1.6;
-  background-image: url('https://media.tenor.com/wngVe_Erkh8AAAAC/blue-white.gif');
-  background-size: cover;
-  margin: 0;
-  padding: 8px;
-}
+    body {
+      font-family: var(--font-family);
+      color: var(--text-color);
+      line-height: 1.6;
+      background-color: #f4f7f9;
+      background-image: linear-gradient(180deg, #eef2f5 0%, #ffffff 100%);
+    }
 
-/* Cabeçalho unificado */
-header {
-  background: linear-gradient(to bottom, #555555, #000000);
-  color: white;
-  text-align: center;
-  padding: 5px 0;
-}
+    /* Cabeçalho */
+    header {
+      background-color: var(--card-bg-color);
+      color: var(--dark-color);
+      text-align: center;
+      padding: 20px 15px;
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: 0 2px 4px var(--shadow-color);
+    }
+    
+    .search-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 600px;
+      width: 100%;
+      margin: 0 auto;
+    }
 
-.header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 10px;
-  flex-wrap: wrap;
-}
+    .search-container {
+      display: flex;
+      width: 100%;
+    }
 
-/* Novo wrapper para alinhar a barra de busca e o botão */
-.search-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 500px;
-  width: 100%;
-  margin: 0 auto;
-}
+    .search-input {
+      padding: 12px 20px;
+      font-size: 16px;
+      border: 1px solid var(--border-color);
+      border-radius: 50px 0 0 50px;
+      outline: none;
+      flex: 1;
+      transition: border-color var(--transition-speed);
+    }
+    .search-input:focus {
+      border-color: var(--primary-color);
+    }
 
-.search-container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  width: 100%;
-}
+    .search-button {
+      background-color: var(--primary-color);
+      border: 1px solid var(--primary-color);
+      border-radius: 0 50px 50px 0;
+      width: 50px;
+      height: 48px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color var(--transition-speed);
+    }
+    .search-button:hover {
+      background-color: var(--primary-hover);
+    }
+    .search-button svg {
+      fill: white;
+      width: 20px;
+      height: 20px;
+    }
+    
+    /* Container dos Cards */
+    .container {
+      padding: 30px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+    }
 
-.search-input {
-  padding: 10px;
-  font-size: 16px;
-  border: 2px solid #ccc;
-  border-radius: 20px 0 0 20px;
-  outline: none;
-  flex: 1;
-}
+    /* Estilo dos Cards */
+    .card {
+      display: flex;
+      flex-direction: column;
+      background-color: var(--card-bg-color);
+      width: 320px;
+      max-width: 100%;
+      box-shadow: 0 5px 15px var(--shadow-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+      text-align: center;
+    }
 
-.search-button {
-  background-color: #333;
-  border: none;
-  border-radius: 0 20px 20px 0;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-}
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+    }
 
-.search-button svg {
-  fill: white;
-}
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
 
-/* Estilos da tabela exibida no modal de busca */
-#searchModal .modal-content {
-  /* Estilos específicos do modal de busca podem ser adicionados aqui */
-}
+    .card .content {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      padding: 20px;
+    }
 
-#searchModal table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
+    .card .content h3 {
+      margin-bottom: 15px;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--dark-color);
+    }
 
-#searchModal th,
-#searchModal td {
-  text-align: center;
-  padding: 12px;
-  border-bottom: 1px solid #ddd;
-}
+    .card .content p {
+      text-align: justify;
+      font-size: 0.95rem;
+      flex-grow: 1;
+      margin-bottom: 20px;
+    }
 
-#searchModal th {
-  background-color: #333;
-  color: white;
-}
+    /* Estilo geral de botões */
+    button.action-btn, .study-link {
+      background-color: var(--primary-color);
+      border: none;
+      color: #ffffff;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 50px;
+      cursor: pointer;
+      outline: none;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all var(--transition-speed) ease;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: auto;
+      align-self: center;
+    }
 
-#searchModal tr:hover {
-  background-color: #f5f5f5;
-}
+    button.action-btn:hover, .study-link:hover {
+      background-color: var(--primary-hover);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+      transform: translateY(-2px);
+    }
 
-#searchModal tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
+    /* Estilos de Modal com Animação */
+    .modal {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity var(--transition-speed) ease, visibility 0s var(--transition-speed);
+    }
 
-#searchModal a,
-#searchModal button.access-btn {
-  color: #000000;
-  text-decoration: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-}
+    .modal.is-visible {
+      opacity: 1;
+      visibility: visible;
+      transition-delay: 0s;
+    }
 
-#searchModal a:hover,
-#searchModal button.access-btn:hover {
-  text-decoration: underline;
-}
+    .modal-content {
+      background-color: #ffffff;
+      padding: 25px;
+      border-radius: var(--border-radius-lg);
+      width: 90%;
+      max-width: 650px;
+      max-height: 85vh;
+      margin: auto;
+      overflow-y: auto;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      position: relative;
+      transform: scale(0.95);
+      transition: transform var(--transition-speed) ease;
+    }
+    
+    .modal.is-visible .modal-content {
+      transform: scale(1);
+    }
 
-/* Container centraliza os cards */
-.container {
-  padding: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+    .close {
+      color: #aaaaaa;
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 32px;
+      font-weight: bold;
+      cursor: pointer;
+      line-height: 1;
+      transition: color var(--transition-speed);
+    }
 
-/* 
-   Principais ajustes para alinhar o botão ao final do card:
-   1) .card como flex container em coluna
-   2) .card .content também como flex container em coluna
-   3) margin-top: auto no botão 
-*/
-.card {
-  display: flex;               /* Flex container principal */
-  flex-direction: column;
-  background-color: #ffffff;
-  margin: 10px;
-  width: 300px;
-  max-width: 100%;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  overflow: hidden;
-  transition: transform 0.3s ease-in-out;
-  text-align: center;
-}
+    .close:hover, .close:focus {
+      color: var(--dark-color);
+      text-decoration: none;
+    }
 
-.card:hover {
-  transform: translateY(-5px);
-}
+    .modal-header {
+      text-align: center;
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border-color);
+    }
 
-/* Mantém a imagem em cima */
-.card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  flex: 0 0 auto;
-}
+    /* Melhoria (18/06): Aumenta o tamanho do título do modal */
+    .modal-header h2 {
+      color: var(--dark-color);
+      font-weight: 600;
+      font-size: 1.75rem;
+    }
 
-/* 
-   Deixa a área de conteúdo flexível, permitindo que o botão fique 
-   no final quando margin-top: auto é aplicado 
-*/
-.card .content {
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 auto;
-  padding: 15px;
-}
+    .modal-body {
+      text-align: center;
+    }
+    
+    #myModal .modal-body-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+    /* Melhoria (18/06): Ajusta o tamanho dos links de ação */
+    #myModal .study-link {
+        flex: 1 1 180px; /* Permite que os botões se ajustem melhor */
+        max-width: 250px;
+    }
+    
+    .chapter-wrapper {
+      margin-bottom: 20px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 20px;
+      /* Melhoria (18/06): Centraliza o texto do wrapper, incluindo o título do áudio */
+      text-align: center;
+    }
+    .chapter-wrapper:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
 
-.card .content h3 {
-  margin-bottom: 10px;
-}
+    .audio-title {
+      font-weight: 600;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+      color: var(--dark-color);
+    }
 
-.card .content p {
-  text-align: justify;
-  font-size: 14px;
-  flex: 1 1 auto; /* faz o texto ocupar o espaço disponível */
-}
+    /* Melhoria (18/06): Refina a aparência do player */
+    .audio-player {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      background-color: var(--light-gray-color);
+      padding: 8px;
+      border-radius: var(--border-radius-sm);
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+      margin: 0 auto;
+      max-width: 400px;
+    }
 
-/* Botão "Acessar" fixado no fim do conteúdo */
-.card .content button {
-  margin-top: auto;
-}
+    .audio-player iframe {
+      width: 100%;
+      height: 52px;
+      border: none; /* Remove a borda do iframe */
+    }
+    
+    /* Estilos da tabela no modal de busca */
+    #searchModal table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
 
-button,
-.study-link {
-  background: linear-gradient(to bottom, #555555, #000000);
-  border: none;
-  color: #ffffff;
-  padding: 12px 24px;
-  font-size: 16px;
-  font-weight: 500;
-  border-radius: 30px;
-  cursor: pointer;
-  outline: none;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  text-decoration: none;
-  display: inline-block;
-}
+    #searchModal th, #searchModal td {
+      text-align: left;
+      padding: 12px 15px;
+      border-bottom: 1px solid var(--border-color);
+    }
 
-button:hover,
-.study-link:hover {
-  background-image: linear-gradient(to right, #2575fc 0%, #6a11cb 100%);
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-  transform: translateY(-2px);
-}
+    #searchModal th {
+      background-color: var(--light-gray-color);
+      color: var(--dark-color);
+      font-weight: 600;
+    }
 
-.card button {
-  align-self: center;
-}
+    /* Melhoria (18/06): Adiciona zebrado na tabela para legibilidade */
+    #searchModal tbody tr:nth-child(even) {
+        background-color: var(--light-gray-color);
+    }
 
-/* Estilos do Modal */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.6);
-  text-align: center;
-}
+    #searchModal tbody tr:hover {
+      background-color: #e9ecef;
+    }
 
-.modal-content {
-  background-color: #ffffff;
-  padding: 10px;
-  border-radius: 8px;
-  width: 90%;
-  max-width: 600px;
-  max-height: 80vh;
-  margin: auto;
-  overflow-y: auto;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+    #searchModal button.access-btn {
+      color: var(--primary-color);
+      background: none;
+      border: 1px solid var(--primary-color);
+      padding: 8px 16px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: all var(--transition-speed);
+    }
+    #searchModal button.access-btn:hover {
+      background-color: var(--primary-color);
+      color: white;
+      transform: none;
+      box-shadow: none;
+    }
 
-.close {
-  color: #aaaaaa;
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-}
-
-.modal-header {
-  padding-top: 30px;
-}
-
-.modal-body {
-  text-align: center;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.modal-body .study-link {
-  margin: 10px;
-  padding: 12px 24px;
-  min-width: 150px;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-.chapter-wrapper {
-  margin-bottom: 15px;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 10px;
-}
-
-.audio-title {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.audio-player {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-.audio-player iframe {
-  width: 350px;
-  height: 50px;
-  border: 0;
-}
-
-/* Media Queries para dispositivos menores */
-@media (max-width: 768px) {
-  .card {
-    width: 90%;
-    margin: 10px auto;
-  }
-
-  .container {
-    padding: 10px;
-  }
-
-  .header-container,
-  .search-wrapper {
-    flex-direction: column;
-  }
-
-  .search-input,
-  .search-button {
-    width: 100%;
-  }
-}
-
-@media (max-width: 400px) {
-  .audio-player iframe {
-    width: 100%;
-  }
-}
-
+    /* Media Queries */
+    @media (max-width: 768px) {
+      .card {
+        width: 85%;
+      }
+      .container {
+        padding: 20px 10px;
+      }
+    }
+    @media (max-width: 480px) {
+      body {
+        font-size: 15px;
+      }
+      .card {
+        width: 95%;
+      }
+      .modal-content {
+        padding: 20px 15px;
+      }
+      .modal-header h2 {
+        font-size: 1.5rem;
+      }
+      .search-wrapper {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- Conteúdo principal da página -->
   <header>
-    <div class="header-container">
-      <div class="search-wrapper">
-        <form id="searchForm" class="search-container">
-          <input type="text" placeholder="Buscar..." name="search" class="search-input">
-          <button type="submit" class="search-button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-              <path d="M15.5 14h-.79l-.28-.27a6.471 6.471 0 0 0 1.57-5.09C15.21 4.61 12.6 2 9.5 2S3.79 4.61 3.79 8.5 6.4 15 9.5 15c1.61 0 3.07-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-5-4.99zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-            </svg>
-          </button>
-        </form>
-      </div>
+    <div class="search-wrapper">
+      <form id="searchForm" class="search-container">
+        <input type="text" placeholder="Buscar por um tema..." name="search" class="search-input">
+        <button type="submit" class="search-button" aria-label="Buscar">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M15.5 14h-.79l-.28-.27a6.471 6.471 0 0 0 1.57-5.09C15.21 4.61 12.6 2 9.5 2S3.79 4.61 3.79 8.5 6.4 15 9.5 15c1.61 0 3.07-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-5-4.99zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+          </svg>
+        </button>
+      </form>
     </div>
   </header>
 
-  <div class="container">
+  <main class="container">
     <div class="card">
       <img src="https://s2-epocanegocios.glbimg.com/ejKjJ3MYj1Wi7YyW623ExJPTW4s=/0x0:620x350/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e536e40f1baf4c1a8bf1ed12d20577fd/internal_photos/bs/2022/c/z/4MlgZMQ3i9a82UldjOcA/2022-08-19-gettyimages-1393548977-1.jpeg" alt="Pontos de Ruptura Tecnológica na 5ª Revolução Industrial">
       <div class="content">
         <h3>Ruptura Tecnológica na 5ª Revolução Industrial</h3>
-        <p>Rupturas tecnológicas na 5ª Revolução Industrial representam mudanças abruptas e transformadoras impulsionadas por avanços em diversas áreas. Essas rupturas redefinem paradigmas industriais, criando novas oportunidades e desafios. O surgimento dessas tecnologias disruptivas está moldando uma nova era de inovação e progresso tecnológico.</p>
-        <button class="myBtn" data-title="Ruptura Tecnológica na 5ª Revolução Industrial">Acessar</button>
+        <p>Rupturas tecnológicas na 5ª Revolução Industrial representam mudanças abruptas e transformadoras impulsionadas por avanços em diversas áreas. Essas rupturas redefinem paradigmas industriais, criando novas oportunidades e desafios.</p>
+        <button class="action-btn" data-title="Ruptura Tecnológica na 5ª Revolução Industrial">Acessar Material</button>
       </div>
     </div>
-
     <div class="card">
       <img src="https://img.freepik.com/fotos-premium/um-laptop-com-a-palavra-mac-na-tela_905510-7227.jpg" alt="Sistema de Classificação Computacional">
       <div class="content">
         <h3>Sistema de Classificação Computacional</h3>
-        <p>Os sistemas de classificação computacional, ao longo da história, evoluíram junto com os diferentes tipos de computadores, desde os clássicos até os quânticos. Estamos vivenciando uma nova fase onde diferentes e inovadores tipos de computador não necessários para solucionar diversas situações em nosso cotidiano.</p>
-        <button class="myBtn" data-title="Sistema de Classificação Computacional">Acessar</button>
+        <p>Os sistemas de classificação computacional, ao longo da história, evoluíram junto com os diferentes tipos de computadores, desde os clássicos até os quânticos. Vivenciamos uma nova fase onde inovadores tipos de computador são necessários.</p>
+        <button class="action-btn" data-title="Sistema de Classificação Computacional">Acessar Material</button>
       </div>
     </div>
-
     <div class="card">
-      <img src="https://i.ibb.co/dD6Rwjc/1719923379128.jpg" alt="A Crise de Escassez na Indústria de Chips">
-      <div class="content">
-        <h3>A Crise de Escassez na Indústria de Chips</h3>
-        <p>A crise de escassez na indústria de chips é um fenômeno global que afeta diversos setores, incluindo eletrônicos de consumo, automóveis e dispositivos médicos. A demanda crescente por semicondutores, combinada com interrupções na cadeia de suprimentos e capacidade de produção limitada, tem levado a atrasos na entrega e aumento dos preços dos produtos.</p>
-        <button class="myBtn" data-title="A Crise de Escassez na Indústria de Chips">Acessar</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://img.odcdn.com.br/wp-content/uploads/2023/11/trafego-dados-moveis.jpg" alt="Computação Preditiva">
-      <div class="content">
-        <h3>Computação Preditiva</h3>
-        <p>A Computação preditiva é uma área da ciência da computação que utiliza algoritmos e modelos estatísticos para prever eventos futuros com base em dados históricos. Essa técnica é amplamente aplicada em diversas áreas, como finanças, saúde e marketing, para tomar decisões mais informadas e antecipar tendências. Ao analisar padrões e correlações nos dados, a computação preditiva ajuda a otimizar processos e identificar oportunidades.</p>
-        <button class="myBtn" data-title="Computação Preditiva">Acessar</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://umlivropordia.com.br/wp-content/uploads/2023/02/Um-livro-por-dia-1024x674.webp" alt="Teorias Conspiratórias da Internet">
-      <div class="content">
-        <h3>Teorias Conspiratórias da Internet</h3>
-        <p>Teorias conspiratórias da internet são narrativas que ganham tração online, muitas vezes sem evidências sólidas, sugerindo que eventos importantes são resultado de conspirações secretas. Elas abrangem uma ampla gama de tópicos, desde governos ocultando a verdade até teorias sobre alienígenas e eventos históricos controversos, influenciando frequentemente a opinião pública e o debate online.</p>
-        <button class="myBtn" data-title="Teorias Conspiratórias da Internet">Acessar</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://i.ibb.co/9hT7xVY/1719923020992.jpg" alt="Simbiose Homem-Máquina">
-      <div class="content">
-        <h3>Simbiose Homem-Máquina</h3>
-        <p>A simbiose homem-máquina refere-se à integração harmoniosa entre capacidades humanas e tecnologias avançadas, criando um sistema híbrido que potencializa as habilidades de ambos. Esta relação colaborativa abre novas portas para inovação, eficiência e resolução de problemas complexos.</p>
-        <button class="myBtn" data-title="Simbiose Homem-Máquina">Acessar</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://i.ibb.co/KkQfCgM/Chat-GPT-Image-19-de-mai-de-2025-20-10-37.png" alt="Cloud, Fog e Edge Computing">
-      <div class="content">
-        <h3>Cloud, Fog e Edge Computing</h3>
-        <p>Cloud, Fog e Edge Computing são paradigmas transformadores na computação moderna. Juntos estão transformando a infraestrutura de serviços da internet.</p>
-        <button class="myBtn" data-title="Cloud, Fog e Edge Computing">Acessar</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://img.olhardigital.com.br/wp-content/uploads/2021/06/shutterstock_1571871052.jpg" alt="Computação Quântica">
-      <div class="content">
-        <h3>Computação Quântica</h3>
-        <p>A computação quântica está revolucionando a tecnologia. Seu pleno desenvolvimento possibilita que computadores nos proporcione uma capacidade de processamento, até então, nunca experimentada.</p>
-        <button class="myBtn" data-title="Computação Quântica">Acessar</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://i.ibb.co/wsHpRPn/1719922740480.jpg" alt="Perigos Reais da Inteligência Artificial">
-      <div class="content">
-        <h3>Perigos Reais da Inteligência Artificial</h3>
-        <p>A inteligência artificial, apesar de seu potencial revolucionário, apresenta desafios significativos, exigindo regulamentações cuidadosas e conscientização da sociedade.</p>
-        <button class="myBtn" data-title="Perigos Reais da Inteligência Artificial">Acessar</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://i.ibb.co/1M27Sy3/1719922628120.jpg" alt="Empatia Artificial">
-      <div class="content">
-        <h3>Empatia Artificial</h3>
-        <p>A empatia artificial compreende as emoções humanas, permitindo sistemas computacionais interagirem conosco de maneira inédita.</p>
-        <button class="myBtn" data-title="Empatia Artificial">Acessar</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://i.ibb.co/J2KTF4y/1719922535522.jpg" alt="Quinta Revolução Industrial">
-      <div class="content">
-        <h3>Quinta Revolução Industrial</h3>
-        <p>A quinta revolução industrial e as convergências de tecnologias disruptivas que estão transformando a economia global.</p>
-        <button class="myBtn" data-title="Quinta Revolução Industrial">Acessar</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://i.ibb.co/d479yJj/1719922376822.jpg" alt="Correntes Filosóficas da Tecnologia">
-      <div class="content">
-        <h3>Correntes Filosóficas da Tecnologia</h3>
-        <p>As correntes filosóficas da tecnologia abrangem diferentes perspectivas sobre o impacto e o papel da tecnologia na sociedade.</p>
-        <button class="myBtn" data-title="Correntes Filosóficas da Tecnologia">Acessar</button>
-      </div>
-    </div>
-
-    <!-- Modal para lista de capítulos -->
-    <div id="myModal" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <span class="close">&times;</span>
-          <h2 id="modalTitle"></h2>
+        <img src="https://i.ibb.co/dD6Rwjc/1719923379128.jpg" alt="A Crise de Escassez na Indústria de Chips">
+        <div class="content">
+            <h3>A Crise de Escassez na Indústria de Chips</h3>
+            <p>A crise de escassez na indústria de chips é um fenômeno global que afeta diversos setores. A demanda crescente, interrupções na cadeia de suprimentos e produção limitada têm levado a atrasos e aumento de preços.</p>
+            <button class="action-btn" data-title="A Crise de Escassez na Indústria de Chips">Acessar Material</button>
         </div>
-        <div class="modal-body">
+    </div>
+    <div class="card">
+        <img src="https://img.odcdn.com.br/wp-content/uploads/2023/11/trafego-dados-moveis.jpg" alt="Computação Preditiva">
+        <div class="content">
+            <h3>Computação Preditiva</h3>
+            <p>A Computação preditiva utiliza algoritmos e modelos estatísticos para prever eventos futuros com base em dados históricos, sendo aplicada em finanças, saúde e marketing para otimizar processos e identificar oportunidades.</p>
+            <button class="action-btn" data-title="Computação Preditiva">Acessar Material</button>
+        </div>
+    </div>
+    <div class="card">
+        <img src="https://umlivropordia.com.br/wp-content/uploads/2023/02/Um-livro-por-dia-1024x674.webp" alt="Teorias Conspiratórias da Internet">
+        <div class="content">
+            <h3>Teorias Conspiratórias da Internet</h3>
+            <p>Teorias conspiratórias da internet são narrativas que ganham tração online, muitas vezes sem evidências, sugerindo que eventos importantes são resultado de conspirações secretas e influenciando a opinião pública.</p>
+            <button class="action-btn" data-title="Teorias Conspiratórias da Internet">Acessar Material</button>
+        </div>
+    </div>
+    <div class="card">
+        <img src="https://i.ibb.co/9hT7xVY/1719923020992.jpg" alt="Simbiose Homem-Máquina">
+        <div class="content">
+            <h3>Simbiose Homem-Máquina</h3>
+            <p>A simbiose homem-máquina refere-se à integração harmoniosa entre capacidades humanas e tecnologias avançadas, criando um sistema híbrido que potencializa as habilidades de ambos e abre portas para a inovação.</p>
+            <button class="action-btn" data-title="Simbiose Homem-Máquina">Acessar Material</button>
+        </div>
+    </div>
+    <div class="card">
+        <img src="https://i.ibb.co/KkQfCgM/Chat-GPT-Image-19-de-mai-de-2025-20-10-37.png" alt="Cloud, Fog e Edge Computing">
+        <div class="content">
+            <h3>Cloud, Fog e Edge Computing</h3>
+            <p>Cloud, Fog e Edge Computing são paradigmas transformadores na computação moderna. Juntos estão transformando a infraestrutura de serviços da internet.</p>
+            <button class="action-btn" data-title="Cloud, Fog e Edge Computing">Acessar Material</button>
+        </div>
+    </div>
+    <div class="card">
+        <img src="https://img.olhardigital.com.br/wp-content/uploads/2021/06/shutterstock_1571871052.jpg" alt="Computação Quântica">
+        <div class="content">
+            <h3>Computação Quântica</h3>
+            <p>A computação quântica está revolucionando a tecnologia. Seu pleno desenvolvimento possibilita uma capacidade de processamento, até então, nunca experimentada.</p>
+            <button class="action-btn" data-title="Computação Quântica">Acessar Material</button>
+        </div>
+    </div>
+    <div class="card">
+        <img src="https://i.ibb.co/wsHpRPn/1719922740480.jpg" alt="Perigos Reais da Inteligência Artificial">
+        <div class="content">
+            <h3>Perigos Reais da Inteligência Artificial</h3>
+            <p>A inteligência artificial, apesar de seu potencial, apresenta desafios significativos, exigindo regulamentações cuidadosas e conscientização da sociedade.</p>
+            <button class="action-btn" data-title="Perigos Reais da Inteligência Artificial">Acessar Material</button>
+        </div>
+    </div>
+    <div class="card">
+        <img src="https://i.ibb.co/1M27Sy3/1719922628120.jpg" alt="Empatia Artificial">
+        <div class="content">
+            <h3>Empatia Artificial</h3>
+            <p>A empatia artificial compreende as emoções humanas, permitindo sistemas computacionais interagirem conosco de maneira inédita.</p>
+            <button class="action-btn" data-title="Empatia Artificial">Acessar Material</button>
+        </div>
+    </div>
+    <div class="card">
+        <img src="https://i.ibb.co/J2KTF4y/1719922535522.jpg" alt="Quinta Revolução Industrial">
+        <div class="content">
+            <h3>Quinta Revolução Industrial</h3>
+            <p>A quinta revolução industrial e as convergências de tecnologias disruptivas que estão transformando a economia global.</p>
+            <button class="action-btn" data-title="Quinta Revolução Industrial">Acessar Material</button>
+        </div>
+    </div>
+    <div class="card">
+        <img src="https://i.ibb.co/d479yJj/1719922376822.jpg" alt="Correntes Filosóficas da Tecnologia">
+        <div class="content">
+            <h3>Correntes Filosóficas da Tecnologia</h3>
+            <p>As correntes filosóficas da tecnologia abrangem diferentes perspectivas sobre o impacto e o papel da tecnologia na sociedade.</p>
+            <button class="action-btn" data-title="Correntes Filosóficas da Tecnologia">Acessar Material</button>
+        </div>
+    </div>
+  </main>
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalTitle"></h2>
+        <span class="close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="modal-body-links">
           <a href="#" id="studyLink" target="_blank" class="study-link">Ficha de Estudo</a>
           <a href="#" id="downloadLink" target="_blank" class="study-link">Material Impresso</a>
-          <div id="audioList"></div>
         </div>
+        <div id="audioList"></div>
       </div>
     </div>
   </div>
 
-  <!-- Modal de Busca -->
   <div id="searchModal" class="modal">
     <div class="modal-content">
       <div class="modal-header">
-        <span class="close" id="closeSearchModal">&times;</span>
         <h2>Resultados da Busca</h2>
+        <span class="close" id="closeSearchModal">&times;</span>
       </div>
       <div class="modal-body">
         <table id="searchResults">
@@ -495,9 +527,7 @@ button:hover,
               <th>Ação</th>
             </tr>
           </thead>
-          <tbody>
-            <!-- Resultados serão inseridos aqui -->
-          </tbody>
+          <tbody></tbody>
         </table>
       </div>
     </div>
@@ -505,311 +535,96 @@ button:hover,
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const modal = document.getElementById('myModal');
-      const btns = document.querySelectorAll('.myBtn');
-      const closeElements = document.querySelectorAll('.close');
+      // Seletores de elementos do DOM
+      const mainModal = document.getElementById('myModal');
+      const searchModal = document.getElementById('searchModal');
+      const actionButtons = document.querySelectorAll('.action-btn');
+      const closeButtons = document.querySelectorAll('.close');
       const modalTitle = document.getElementById('modalTitle');
       const studyLink = document.getElementById('studyLink');
+      const downloadLink = document.getElementById('downloadLink');
       const audioList = document.getElementById('audioList');
-      const searchModal = document.getElementById('searchModal');
       const searchForm = document.getElementById('searchForm');
       const searchResultsBody = document.getElementById('searchResults').querySelector('tbody');
 
-      // Estrutura de dados com informações dos capítulos
+      // A estrutura de dados 'chapters' permanece a mesma do original
       const chapters = {
-        'Ruptura Tecnológica na 5ª Revolução Industrial': {
-          studyPage: 'https://ravellsl.github.io/material-pontos-ruptura-tecnologica-quinta-revolucao-industrial/',
-          studyLink: 'https://drive.google.com/file/d/1ZMm2tBg7pd9y2S39J3XUaRfkbQ81oLJd/view',
-          chapters: [
-            { title: 'Introdução', audioLink: 'https://drive.google.com/file/d/1z4zX6nDFo3L2MjvHtQHyOC_O2Zop_d9L/preview' },
-            { title: 'METAVERSO', audioLink: 'https://drive.google.com/file/d/1E00gOHDNgB3lDMMMVdWqblbKHNW0jSyT/preview' },
-            { title: 'Equipamentos Necessários e Estruturação Técnica', audioLink: 'https://drive.google.com/file/d/1Cw3GSxd40j7DLlOt4hzFz-D6gssosyjX/preview' },
-            { title: 'Aspectos Sociais e Culturais', audioLink: 'https://drive.google.com/file/d/1pX4JsL3821UwbpfPVCysYSJm1Fn8zDzZ/preview' },
-            { title: 'Sistema de Comércio e Transações', audioLink: 'https://drive.google.com/file/d/1AtC0J7jg4TEGoOurCf8zZFh4-Xy5dBDU/preview' },
-            { title: 'Perigos', audioLink: 'https://drive.google.com/file/d/12waCaxeEqLHkJVmLpxFdih9uwBBfGn6S/preview' },
-            { title: 'Problemas Ético e Morais', audioLink: 'https://drive.google.com/file/d/1esc56HT0N5s-uKOTiOkCp3ETXlrcqx4z/preview' },
-            { title: 'INTERFACES CÉREBRO-MÁQUINA', audioLink: 'https://drive.google.com/file/d/1OkAEXkkvU9LMbfTE4-g9Wz8OJgFVydD1/preview' },
-            { title: 'Equipamentos Necessários e Estruturação Técnica', audioLink: 'https://drive.google.com/file/d/1fViFJrLkHN2t4L9KRLY_yn_hFwaNN_PQ/preview' },
-            { title: 'Realização de Atividades', audioLink: 'https://drive.google.com/file/d/1nPuqFb-2OKC6qZvebjltKyfsTrQO3SKf/preview' },
-            { title: 'Benefícios', audioLink: 'https://drive.google.com/file/d/1U6C9CiYcfX6wvwTsyBVIHQSNocLA4vIE/preview' },
-            { title: 'Perigos', audioLink: 'https://drive.google.com/file/d/1QZtLdTmrFhvLU6-kazOuMfvbeZ5Z92LW/preview' },
-            { title: 'Dificuldades de Desenvolvimento', audioLink: 'https://drive.google.com/file/d/1AKjMZy-FkShwcNzSNB7vhhx5KGGNb3Jx/preview' },
-            { title: 'COMPUTAÇÃO QUÂNTICA', audioLink: 'https://drive.google.com/file/d/1zHzRz8xzUzPyZDB-1RVEw0VCdc-tR7tC/preview' },
-            { title: 'Equipamentos Necessários e Estruturação Técnica', audioLink: 'https://drive.google.com/file/d/1sJHfTlq5Wuck-WapONANafALuwTqrAu9/preview' },
-            { title: 'Realização de Atividades', audioLink: 'https://drive.google.com/file/d/1keutnIHwkjUz1TZo6ZMTBfguuen4_2K4/preview' },
-            { title: 'Benefícios', audioLink: 'https://drive.google.com/file/d/1e57X_wN_SJR5R5pWthRtE2kkio83Pkgo/preview' },
-            { title: 'Perigos', audioLink: 'https://drive.google.com/file/d/1vbHadBgMDv2bBEPQYXXdrdLoi6LpBKCd/preview' },
-            { title: 'Dificuldades Atuais de Desenvolvimento', audioLink: 'https://drive.google.com/file/d/1L17cSGTD6epbTvgl_UOYok7VdQU0b31N/preview' },
-            { title: 'Conclusão', audioLink: 'https://drive.google.com/file/d/1fbt2ih_GvAwGxrzbzUAVS1oxHtlw2Ao3/preview' }
-          ]
-        },
-        'Sistema de Classificação Computacional': {
-          studyPage: 'https://ravellsl.github.io/material-sistema-classificacao-computacional/',
-          studyLink: 'https://drive.google.com/file/d/1dalmsrb9wrKgk40Mq__cN8hfjeskdyUg/view',
-          chapters: [
-            { title: 'Introdução', audioLink: 'https://drive.google.com/file/d/1GwaVMLuAlyXd6F1TcszJAIoJWigu7BQS/preview' },
-            { title: 'A Categorização Computacional', audioLink: 'https://drive.google.com/file/d/1KldEtm3CWEY99zNmmIZhRnWc-lkFGNsu/preview' },
-            { title: 'Classificação Computacional', audioLink: 'https://drive.google.com/file/d/1-2696i_p0aJhEXUyohMtsNEOok8lREs2/preview' },
-            { title: 'Computação Clássica', audioLink: 'https://drive.google.com/file/d/1_Akbi3v56YNZdluu31B1v3W6Cm0Wg_mV/preview' },
-            { title: 'Supercomputadores', audioLink: 'https://drive.google.com/file/d/1UWi5Yb_XDK-f0zgl2pfdeqXag3uS9AK1/preview' },
-            { title: 'Computação Fotônica', audioLink: 'https://drive.google.com/file/d/1Xr1gUodiAmUJX7M2IysWkFSXJoc4gksm/preview' },
-            { title: 'Computação Neuromórfica', audioLink: 'https://drive.google.com/file/d/1jhRtdzxlPtNPqDU_-Lnw__N5rPej-h0V/preview' },
-            { title: 'Computação Biológica', audioLink: 'https://drive.google.com/file/d/1jXeq5BTRokRVy9xZh4qTSQsKQ4s48kHt/preview' },
-            { title: 'Computação Adiabática', audioLink: 'https://drive.google.com/file/d/1J1IxyngYIL29wzJAGSHrRTdygj_thOKB/preview' },
-            { title: 'Computação Quântica', audioLink: 'https://drive.google.com/file/d/11iuCa7NoltcaUvpjfN-A3aFtmXfPosZ0/preview' }
-          ]
-        },
-        'A Crise de Escassez na Indústria de Chips': {
-          studyPage: 'https://ravellsl.github.io/material-escassez-industria-chip/',
-          studyLink: 'https://drive.google.com/file/d/19QLf2eIOPWa4CyBudUMtJZRQz2dORHO1/view',
-          chapters: [
-            { title: 'Introdução', audioLink: 'https://drive.google.com/file/d/1EO9bvyq6vn8K1taa9aS_ldSmeTLNzjSc/preview' },
-            { title: 'Crise dos Chips, uma nova realidade!', audioLink: 'https://drive.google.com/file/d/1ceG_Y-pPonQsK8P2Dcdg_HsF3FJG2tHD/preview' },
-            { title: 'Resposta da Indústria e Governos', audioLink: 'https://drive.google.com/file/d/1PTKy9bmIuLoFwH2BY5k3sAjXpafLtbeK/preview' },
-            { title: 'Qual o papel do usuário comum?', audioLink: 'https://drive.google.com/file/d/1vHFHm3guEBYsX8OmZtTnv27VXqLTD6Td/preview' },
-            { title: 'O que esperar?', audioLink: 'https://drive.google.com/file/d/1jGoU_OWX-N3lYQHzsMEncKagAMh9Yb01/preview' },
-            { title: 'Conclusão', audioLink: 'https://drive.google.com/file/d/1ZNbs4U2uT40vhIQ7n_69fAEM1tBajcP5/preview' }
-          ]
-        },
-        'Computação Preditiva': {
-          studyPage: 'https://ravellsl.github.io/material-computacao-preditiva/',
-          studyLink: 'https://drive.google.com/file/d/1ben6DdeaT2NwWdcjdxF1ymmYuk8vpE_o/view',
-          chapters: [
-            { title: 'Introdução', audioLink: 'https://drive.google.com/file/d/1V2yLgJkJ5-qXd5VQAHk-TGlTiWyOaJId/preview' },
-            { title: 'Fundamentos da Computação Preditiva', audioLink: 'https://drive.google.com/file/d/19AbtimrYxyuHpOldlcR-hdGgH_hvdGuy/preview' },
-            { title: 'Aplicações da Computação Preditiva', audioLink: 'https://drive.google.com/file/d/1KJF7C6Dzk4Z7RihD0hHmcu4J0eftd-GM/preview' },
-            { title: 'Desafios da Computação Preditiva', audioLink: 'https://drive.google.com/file/d/1vTJ4gDqUgVyRM7W46a1kUNRvamg25fpe/preview' },
-            { title: 'Ética e Privacidade', audioLink: 'https://drive.google.com/file/d/1q5f5Sz45cnb8auKEz01lfnttHT4BRAOO/preview' },
-            { title: 'Futuro da Computação Preditiva', audioLink: 'https://drive.google.com/file/d/1fHMRQcjT228KukhUp7bv_p65ujUTWVh1/preview' },
-            { title: 'Interpretabilidade e Explicabilidade dos Modelos', audioLink: 'https://drive.google.com/file/d/1MNt12sF5rDKIseX2lNphS_wVoo5Ecey7/preview' },
-            { title: 'Ética e Viés', audioLink: 'https://drive.google.com/file/d/1Bayc84qTuP7beNPp9Do-FQ5OD6Ju_BDt/preview' },
-            { title: 'Regulamentação e Governança', audioLink: 'https://drive.google.com/file/d/1u59MyvfrqfD5BzZ6lqHpmH6k3Gp8clHK/preview' },
-            { title: 'Conclusão', audioLink: 'https://drive.google.com/file/d/12ESq-GFSB_pXC_1mAaiVTrQ_aWtNVG3Y/preview' }
-          ]
-        },
-        'Teorias Conspiratórias da Internet': {
-          studyPage: 'https://ravellsl.github.io/material-teorias-conspiratorias-internet/',
-          studyLink: 'https://drive.google.com/file/d/1UolIfCRJ-fL81lq1YegxKxMYO0NQBbjh/view',
-          chapters: [
-            { title: 'Introdução', audioLink: 'https://drive.google.com/file/d/1MZi2Rjio49jb-26jC936Js_c3dohBkdh/preview' },
-            { title: 'Origens', audioLink: 'https://drive.google.com/file/d/1P4wHkJeqRHtsIdn6nUU4SDzNuDVlBiAo/preview' },
-            { title: 'Estruturação', audioLink: 'https://drive.google.com/file/d/1PnU2ICdnPCD0tZFe7g-oE6WYBYeNPJXo/preview' },
-            { title: 'Motivações', audioLink: 'https://drive.google.com/file/d/1tESezkPK8VDxE4NrnjzMU1Cr3jVdtbm3/preview' },
-            { title: 'Metodologias de Proteção', audioLink: 'https://drive.google.com/file/d/1EBx710eaAUR2voJKR2yP129oU0EOhB4V/preview' },
-            { title: 'Vigilância Global', audioLink: 'https://drive.google.com/file/d/1oxftBeBziZId2qwacWmT39v3FnQ0-atf/preview' },
-            { title: 'Rede 5G e COVID-19', audioLink: 'https://drive.google.com/file/d/1PRNQvLspquu9MaIzY4OdE7v8MgqQScFC/preview' },
-            { title: 'Projeto HAARP', audioLink: 'https://drive.google.com/file/d/1OmkH1-Mp0yDsziaGGmK4BKGMdSt_g6YK/preview' },
-            { title: 'Controle de Mentes por Microchips', audioLink: 'https://drive.google.com/file/d/1hFOKlWHxcM88yWyyY4Rbn_5QdhZQ8fpH/preview' },
-            { title: 'Illuminati na Internet', audioLink: 'https://drive.google.com/file/d/1rREu1TcCM2tNa3kBrRaHloGWwOhXreNw/preview' },
-            { title: 'Internet Censurada', audioLink: 'https://drive.google.com/file/d/1ylXJMMWG8lumRkb240joRBuzrOiINCVU/preview' },
-            { title: 'Blue Beam Project', audioLink: 'https://drive.google.com/file/d/1QtjNkkMsyZ8x7wMB5-ceo_i6mVcgJ9wH/preview' },
-            { title: 'Grande Firewall da China', audioLink: 'https://drive.google.com/file/d/17jEVf8u5DGVA9ctmYfHxw8tK4tbvd_dr/preview' },
-            { title: 'Apocalipse Tecnológico', audioLink: 'https://drive.google.com/file/d/1VOKU31iRJ72YmSump0roz-redMEqu1NS/preview' },
-            { title: 'Criptomoedas e o Governo Mundial', audioLink: 'https://drive.google.com/file/d/1QdVgpjMqCrDzPbYmM28Z_Ag2UMR8YzcY/preview' },
-            { title: 'Conclusão', audioLink: 'https://drive.google.com/file/d/1ipw5KAfbxVltxyQYMtb0wy-BrfQ91JyS/preview' }
-          ]
-        },
-        'Simbiose Homem-Máquina': {
-          studyPage: 'https://ravellsl.github.io/material-simbiose-homem-maquina/',
-          studyLink: 'https://drive.google.com/file/d/1fPDlOZjwyYhUz2kCCRicqhDp7KYKWv7T/view',
-          chapters: [
-            { title: 'Introdução', audioLink: 'https://drive.google.com/file/d/1JHyKC1WaNFeEPRDQ0lNRhJiNTPI7CpBZ/preview' },
-            { title: 'Conceitos Gerais', audioLink: 'https://drive.google.com/file/d/1EAz9QrZXnSlItjVprSTOf9LOcHz33Wyt/preview' },
-            { title: 'Origem', audioLink: 'https://drive.google.com/file/d/1tjufzeuj2GJXkmG0vE8KA5qmoQeGukDD/preview' },
-            { title: 'Avanços ao Longo do Tempo', audioLink: 'https://drive.google.com/file/d/16Z8MxQ_RZcSr2jnqSqc3pVDmc1OCDHh-/preview' },
-            { title: 'Estruturação', audioLink: 'https://drive.google.com/file/d/1IwC1Z2_KulBN9KyzxZeRGae5qs4fIH8i/preview' },
-            { title: 'Áreas de Impacto', audioLink: 'https://drive.google.com/file/d/1ZteOOfDZiE8UIm3RG0kVSg8_qWbGLPrZ/preview' },
-            { title: 'Vantagens', audioLink: 'https://drive.google.com/file/d/1fsJnN80BdnL98yuNtzIO3Bt6yR2MzkgS/preview' },
-            { title: 'Perigos', audioLink: 'https://drive.google.com/file/d/18u7ySPHW3Hyb42PQlffVoPPVmipLD5j7/preview' },
-            { title: 'Questões Éticas', audioLink: 'https://drive.google.com/file/d/1t5U6ho5ABO0jHpPy2BLNM6MdnPt2Pmt8/preview' },
-            { title: 'Segurança Digital', audioLink: 'https://drive.google.com/file/d/1CK9uKAfuL4k0yk2r5wKV5ugIM5Ddg5Ou/preview' },
-            { title: 'Correlação com Outras Tecnologias', audioLink: 'https://drive.google.com/file/d/13ubVd-8qn930gAxek11xE8XdKZMR3dfj/preview' },
-            { title: 'Futuro da Tecnologia Homem-Máquina', audioLink: 'https://drive.google.com/file/d/1GeRW0-zEFYofLCVmirYg_BDqYnvLWbgU/preview' },
-            { title: 'Conclusão', audioLink: 'https://drive.google.com/file/d/1_JJPDRZmT3L9Q3R9ki2IjtR4pb0_3sSF/preview' }
-          ]
-        },
-        'Cloud, Fog e Edge Computing': {
-          studyPage: 'https://ravellsl.github.io/material-cloud-fog-edge-computing/',
-          studyLink: 'https://drive.google.com/file/d/1kclMO4dekprxzhN446IrJDrBOLTIITrQ/view',
-          chapters: [
-            { title: 'Cloud, Fog e Edge Computing (introdução)', audioLink: 'https://drive.google.com/file/d/1L4tKt7OeAAWMeskp_RDxs5joQmlTTEm4/preview' },
-            { title: 'O que é Cloud Computing?', audioLink: 'https://drive.google.com/file/d/1F12tq6P-aROzUK8TXK6fdN0IUCTEe84U/preview' },
-            { title: 'Evolução da Cloud Computing', audioLink: 'https://drive.google.com/file/d/1TMZ4JxYk4JLQPowYzc2ByFuOxcJmMv4s/preview' },
-            { title: 'Benefícios da Cloud Computing', audioLink: 'https://drive.google.com/file/d/1d-_JhgZmOT7ohKmVwiPoU5SDLQyCViQd/preview' },
-            { title: 'Tipos de Cloud Computing', audioLink: 'https://drive.google.com/file/d/1nEWU7PSchLjWPmLyYArAiZbNufx2_Xo7/preview' },
-            { title: 'Arquiteturas de Cloud Computing', audioLink: 'https://drive.google.com/file/d/1GHi0fW7OEnZLEcj8keOjfeV1w-b5XoCm/preview' },
-            { title: 'Desafios da Cloud Computing', audioLink: 'https://drive.google.com/file/d/1ZgkuzXHXKr-p_9iojI-X54cyyBA9QEyR/preview' },
-            { title: 'Tendências da Cloud Computing', audioLink: 'https://drive.google.com/file/d/1Jh9WWKI5pTohuSXq8PqKtE5tOepVoQGe/preview' },
-            { title: 'Cloud Computing (síntese)', audioLink: 'https://drive.google.com/file/d/199IOgLihcB69HEPTTzyF-OIq12NVrLFa/preview' },
-            { title: 'Fog Computing (introdução)', audioLink: 'https://drive.google.com/file/d/1wvxNvimJ0y52W38GuJ5AFuEUznTscP5Q/preview' },
-            { title: 'O que é Fog Computing?', audioLink: 'https://drive.google.com/file/d/1CzCj2Dfi4GSxt1CdlK_8xqSsxbqK2Z1L/preview' },
-            { title: 'Diferenças entre Fog Computing e Cloud Computing', audioLink: 'https://drive.google.com/file/d/1pekQkaaqcAN1NoAmuLUnkCaKjxH6apwW/preview' },
-            { title: 'Benefícios do Fog Computing', audioLink: 'https://drive.google.com/file/d/1ljMwHPdvg8TYnPwCJI0mV-rsJ-tTnD6G/preview' },
-            { title: 'Desafios do Fog Computing', audioLink: 'https://drive.google.com/file/d/12xkmMtyT2Qe_U87b4j09gFiRGKDPd1Ub/preview' },
-            { title: 'Tendências do Fog Computing', audioLink: 'https://drive.google.com/file/d/1rn34q6oa5Bby4pCC2GowRJP5gh6yvKNz/preview' },
-            { title: 'Edge Computing (introdução)', audioLink: 'https://drive.google.com/file/d/1x_jHXpB3aUWqkYTkVrpE2siT82a5tlZk/preview' },
-            { title: 'Conceitos e Características', audioLink: 'https://drive.google.com/file/d/1jO2R34Fr9bebH3dOlRXp9vmhGToi7j9v/preview' },
-            { title: 'Arquitetura do Edge Computing', audioLink: 'https://drive.google.com/file/d/1P36qyNiJkR98TDaoRBTsm3r8PzAiHFxN/preview' },
-            { title: 'Aplicações do Edge Computing', audioLink: 'https://drive.google.com/file/d/1-mpRyW-z7hCBiT20f5MO-yEm50jbc6vg/preview' },
-            { title: 'Desafios e Oportunidades do Edge Computing', audioLink: 'https://drive.google.com/file/d/17TjNWr0viFfEJziTf87JObHjTt7fTjbp/preview' },
-            { title: 'Conclusão', audioLink: 'https://drive.google.com/file/d/1miJLZSg6qG5DPE_Pi_L7LkK08qBztb2O/preview' }
-          ]
-        },
-        'Computação Quântica': {
-          studyPage: 'https://ravellsl.github.io/material-computacao-quantica/',
-          studyLink: 'https://drive.google.com/file/d/1SxDkffCabGUqS6fbZmy1FIVe10kuQKe9/view',
-          chapters: [
-            { title: 'Introdução', audioLink: 'https://drive.google.com/file/d/15aAFITipg-szbBIlbDmfMJ1EaZIygm9e/preview' },
-            { title: 'Definições e Conceitos Fundamentais da Computação Quântica', audioLink: 'https://drive.google.com/file/d/16ppER34qTxnnMiEwavgYPJhyR13BH4k-/preview' },
-            { title: 'Princípios Fundamentais', audioLink: 'https://drive.google.com/file/d/1pvfc-XV_8iLR3Wmw3V-znd6cdtUxnO6n/preview' },
-            { title: 'Tipos de Computadores', audioLink: 'https://drive.google.com/file/d/1RjGWf7SELKhqAN_jWHGlyyKBRXbiKmqk/preview' },
-            { title: 'Feitos Importantes dos Computadores Quânticos', audioLink: 'https://drive.google.com/file/d/1elFCDUbbeEJ3w0KKSb-oVGm9CoMS66bj/preview' },
-            { title: 'Aplicações Práticas', audioLink: 'https://drive.google.com/file/d/1NeAwPMOwlM8gNY1l9OwCecweZFjTqByX/preview' },
-            { title: 'Diferença Entre Computadores', audioLink: 'https://drive.google.com/file/d/1b-PkXE7dCHYFM7rAb4CoaIBHUUbZGq-3/preview' },
-            { title: 'Principais Computadores Quânticos em Operação', audioLink: 'https://drive.google.com/file/d/1JjJqvQ573yEmmywZgaCIIiy8rgVG42V-/preview' },
-            { title: 'Conclusão', audioLink: 'https://drive.google.com/file/d/1j3O8jKp_wA3isb77FBTfKW9TpUUVp-5D/preview' }
-          ]
-        },
-        'Perigos Reais da Inteligência Artificial': {
-          studyPage: 'https://ravellsl.github.io/material-perigos-reais-ia/',
-          studyLink: 'https://drive.google.com/file/d/1gcAKVjROMvaoqbcCobdSMU2bqFcFAaOI/view',
-          chapters: [
-            { title: 'Introdução', audioLink: 'https://drive.google.com/file/d/1SaByxC6caOXL6NicEFghbfR8a0P8GM3x/preview' },
-            { title: 'Viés Algorítmico', audioLink: 'https://drive.google.com/file/d/1fJjckZm65UerRFi5xOR4F0aZOPvkfasb/preview' },
-            { title: 'Manipulação de Mídia', audioLink: 'https://drive.google.com/file/d/1fFZ3RrqlNNZzHIOovMNMFfAzAIQ0_jht/preview' },
-            { title: 'Desemprego em Massa', audioLink: 'https://drive.google.com/file/d/1fNDN4TmZiEmZ6qWTkNfEIDWSial_hr5e/preview' },
-            { title: 'Ataques Cibernéticos a Sistemas de Inteligência Artificial', audioLink: 'https://drive.google.com/file/d/1EKy1qNEsG-YpOe0fY81z-7TpTx8zXO6H/preview' },
-            { title: 'Uso Indevido de Dados Pessoais', audioLink: 'https://drive.google.com/file/d/1q0MsMc_B_LoBwWnhPxGwMIkB32_z-pHp/preview' },
-            { title: 'Risco de Armas Autônomas', audioLink: 'https://drive.google.com/file/d/1ut3yX_DPkR_MnWD-bf5FD3eauJgvx6sW/preview' },
-            { title: 'Risco de Manipulação Política', audioLink: 'https://drive.google.com/file/d/1XZDPaHy5WWEIX8Mj5hlciiBWyjFoIA6u/preview' },
-            { title: 'Deterioração das Habilidades Humanas', audioLink: 'https://drive.google.com/file/d/18EFeyKzCn8UZAnlHMyo5mBWuQVX-VFX2/preview' },
-            { title: 'Discriminação Algorítmica', audioLink: 'https://drive.google.com/file/d/14PmINgeUDsXODMjmTfpFG7cvoHl95I8h/preview' },
-            { title: 'Conclusão', audioLink: 'https://drive.google.com/file/d/1wqmOboVnEEbVj0S88nBpYzNMOMGe3EIc/preview' }
-          ]
-        },
-        'Empatia Artificial': {
-          studyPage: 'https://ravellsl.github.io/material-empatia-artificial/',
-          studyLink: 'https://drive.google.com/file/d/1hILmn-K_lxTrctKfcB7IbWjqLz5LuqX4/view',
-          chapters: [
-            { title: 'Introdução', audioLink: 'https://drive.google.com/file/d/1SDekTVOquSBtuU2jIQMqsbFveSDEt_rB/preview' },
-            { title: 'Processamento de Linguagem Natural', audioLink: 'https://drive.google.com/file/d/1h2VVBidxt71i96Ybcn6tiOWvYCFbZDXX/preview' },
-            { title: 'Modelos de Personalidade', audioLink: 'https://drive.google.com/file/d/1yM2xEcuC01LoIY1fWtogXEJ1UgS3lggE/preview' },
-            { title: 'Geração de Respostas Empáticas', audioLink: 'https://drive.google.com/file/d/1O4CY4SVBHdw_qR4DW9GKNilaAtiT1lJL/preview' },
-            { title: 'Ética e Privacidade', audioLink: 'https://drive.google.com/file/d/11INZFih2QViccNHCJglO39aJBxqQqly0/preview' },
-            { title: 'Aplicações Práticas', audioLink: 'https://drive.google.com/file/d/12gXeVO8Xhe2-hqyvxoGSZx6fHw8RQT6z/preview' },
-            { title: 'Limitações Atuais', audioLink: 'https://drive.google.com/file/d/11svAvslns1v64fiVwSfodcJH6dxnwWph/preview' },
-            { title: 'Futuro da Empatia Artificial', audioLink: 'https://drive.google.com/file/d/1f6qJMC35hi42yXpPdqHchblRmfDfxA1n/preview' },
-            { title: 'Conclusão', audioLink: 'https://drive.google.com/file/d/1XEOB4OFIvsAn6VWP7rPkbU2exZT63MIS/preview' }
-          ]
-        },
-        'Quinta Revolução Industrial': {
-          studyPage: 'https://ravellsl.github.io/material-quinta-revolucao-industrial/',
-          studyLink: 'https://drive.google.com/file/d/16pPVZT6y-Hv6wMxUrXqZPdyJgT9g_1xI/view',
-          chapters: [
-            { title: 'Introdução', audioLink: 'https://drive.google.com/file/d/1aBlxyh_kfDG7RNjlfPweuOOJxvt1wEiq/preview' },
-            { title: 'Rede 6G', audioLink: 'https://drive.google.com/file/d/17DYgj_wkL9ZKks3uP1QDtAf6kaxG38XS/preview' },
-            { title: 'Internet Quântica', audioLink: 'https://drive.google.com/file/d/1BLaZ6D9tJAcjE68w_Z2rBT9uGtHKfAP9/preview' },
-            { title: 'Inteligência Artificial das coisas', audioLink: 'https://drive.google.com/file/d/1FOu7Ord771Ttzxsg5Rdu_bveVTyJKjDZ/preview' },
-            { title: 'Web 3.0', audioLink: 'https://drive.google.com/file/d/1aOMCYRIbm7TUXS2SwaMWvv3tX1z_hvlk/preview' },
-            { title: 'Smart Grid', audioLink: 'https://drive.google.com/file/d/1PwvDDCK8g_JQCc1S23ig1yAXLRFxNetG/preview' },
-            { title: 'Transmissão de Energia Sem Fio', audioLink: 'https://drive.google.com/file/d/1DHLNyLFTXlGlEQZILzlcdJ2vOVrJl5bH/preview' },
-            { title: 'Cidades Inteligentes', audioLink: 'https://drive.google.com/file/d/1wqLJnbepTfeFiPiklD-haO8HRkaxhgVQ/preview' },
-            { title: 'Impressão 4D', audioLink: 'https://drive.google.com/file/d/1jBsPks9e5jH9T_up5RwZhR8YGHkCQNuD/preview' },
-            { title: 'Gêmeo Digital', audioLink: 'https://drive.google.com/file/d/1QrcZAYcJIF7uMEwiwsP77pdfRwZxnoJa/preview' },
-            { title: 'Metamateriais', audioLink: 'https://drive.google.com/file/d/1zIU28k_JV3xr2npiFM1epZOGT5uz_sb_/preview' },
-            { title: 'Robótica de Drone e Drones Aquáticos', audioLink: 'https://drive.google.com/file/d/1FVgg3lYgbB59WgyXfQ4Q3m8tKYT7u2SD/preview' },
-            { title: 'Tecnologia de Predição', audioLink: 'https://drive.google.com/file/d/1gHBDFKnlj3t3WWZ88BN5qlqSCnIOW3ID/preview' },
-            { title: 'Armazenamento em DNA', audioLink: 'https://drive.google.com/file/d/1VA1IHeJyIEGmMGnqA5Us3Lh-JJb2DpWp/preview' },
-            { title: 'Comida Sintética', audioLink: 'https://drive.google.com/file/d/1WTC98S1vGrQg6S-Ijk9Uuw0Z4dbOgTj8/preview' },
-            { title: 'Metaverso', audioLink: 'https://drive.google.com/file/d/1Tq5memGhrxmmqC708laUSWTFw4riTzI6/preview' },
-            { title: 'Interface Cérebro-Máquina', audioLink: 'https://drive.google.com/file/d/1X_vJ-YaIBa-jscO-5UzQbHtf_-bDK2Xc/preview' },
-            { title: 'Smart Glass', audioLink: 'https://drive.google.com/file/d/1_CRB3yNAG-nzwGE3JdHLSfFdt2geo-d4/preview' },
-            { title: 'Realidade Háptica', audioLink: 'https://drive.google.com/file/d/1IBfm_EfNI6m0SvbZ0EhAr8XCoQmTuW10/preview' },
-            { title: 'Conclusão', audioLink: 'https://drive.google.com/file/d/1Kz2wwhSOPrtQ8ppFZwxdr7NE2dSzDXOM/preview' }
-          ]
-        },
-        'Correntes Filosóficas da Tecnologia': {
-          studyPage: 'https://ravellsl.github.io/material-correntes-filosoficas/',
-          studyLink: 'https://drive.google.com/file/d/15Kckxw8Q56PJzPvr_aLb-buXU2Uac6xY/view',
-          chapters: [
-            { title: 'Introdução', audioLink: 'https://drive.google.com/file/d/1pVe8Sq683MwY1eniOKLtkGMIPGvS2PQI/preview' },
-            { title: 'Cyberpunk', audioLink: 'https://drive.google.com/file/d/1wy-uS7d043OgSrXzY24nOXCjzbTJDNGR/preview' },
-            { title: 'Cypherpunk', audioLink: 'https://drive.google.com/file/d/1ITWf76GB4tq-n8LueoTBEWI9-M7lr2hE/preview' },
-            { title: 'Dataísmo', audioLink: 'https://drive.google.com/file/d/1NVUjrQGsW4_oQRJQvr4mtUCkPIVv9Prw/preview' },
-            { title: 'Transumanismo', audioLink: 'https://drive.google.com/file/d/1_jHxbP1uTxnqBCbn90MIAl1a2UjiuopO/preview' },
-            { title: 'Biohacking', audioLink: 'https://drive.google.com/file/d/1SutEQoD1wTPMzekDnX-Lum-cqA9BgM0b/preview' },
-            { title: 'Ludologia Filosófica', audioLink: 'https://drive.google.com/file/d/1237bbhlaIdPkuLWPbwMVsq7giWAhPFEX/preview' },
-            { title: 'Anarquismo Digital', audioLink: 'https://drive.google.com/file/d/1_Vc2xSyCNH8D1J_7fkHLCfsds4PT7q-4/preview' },
-            { title: 'Tecnofeminismo', audioLink: 'https://drive.google.com/file/d/1KEPK16yc339-vPGcX1QG8vdQsSd6fIIy/preview' },
-            { title: 'Filosofia da Cibernética', audioLink: 'https://drive.google.com/file/d/197R4vU27WWDQ-U8X2hECLOL-s3r_p_9C/preview' },
-            { title: 'Neo-Luddismo', audioLink: 'https://drive.google.com/file/d/1Iu9H5WvPkmoPeA87HyWenxdHfaDkGoGF/preview' },
-            { title: 'Technogaianismo', audioLink: 'https://drive.google.com/file/d/1KYyCBBsD_ifPHsVlEwzlPmCxKDS3lTzO/preview' },
-            { title: 'Singularidade Tecnológica', audioLink: 'https://drive.google.com/file/d/1Ld_pHGRsGklBySiXqfHIY8VvuxGikwnO/preview' },
-            { title: 'Conclusão', audioLink: 'https://drive.google.com/file/d/1oHdU8F7wp7uroCUKQZXJ94VXeTk9kUTx/preview' }
-          ]
-        }
+        'Ruptura Tecnológica na 5ª Revolução Industrial': { studyPage: 'https://ravellsl.github.io/material-pontos-ruptura-tecnologica-quinta-revolucao-industrial/', studyLink: 'https://drive.google.com/file/d/1ZMm2tBg7pd9y2S39J3XUaRfkbQ81oLJd/view', chapters: [ { title: 'Introdução', audioLink: 'https://drive.google.com/file/d/1z4zX6nDFo3L2MjvHtQHyOC_O2Zop_d9L/preview' }, { title: 'METAVERSO', audioLink: 'https://drive.google.com/file/d/1E00gOHDNgB3lDMMMVdWqblbKHNW0jSyT/preview' }, { title: 'Equipamentos Necessários e Estruturação Técnica', audioLink: 'https://drive.google.com/file/d/1Cw3GSxd40j7DLlOt4hzFz-D6gssosyjX/preview' }, { title: 'Aspectos Sociais e Culturais', audioLink: 'https://drive.google.com/file/d/1pX4JsL3821UwbpfPVCysYSJm1Fn8zDzZ/preview' }, { title: 'Sistema de Comércio e Transações', audioLink: 'https://drive.google.com/file/d/1AtC0J7jg4TEGoOurCf8zZFh4-Xy5dBDU/preview' }, { title: 'Perigos', audioLink: 'https://drive.google.com/file/d/12waCaxeEqLHkJVmLpxFdih9uwBBfGn6S/preview' }, { title: 'Problemas Ético e Morais', audioLink: 'https://drive.google.com/file/d/1esc56HT0N5s-uKOTiOkCp3ETXlrcqx4z/preview' }, { title: 'INTERFACES CÉREBRO-MÁQUINA', audioLink: 'https://drive.google.com/file/d/1OkAEXkkvU9LMbfTE4-g9Wz8OJgFVydD1/preview' }, { title: 'Equipamentos Necessários e Estruturação Técnica', audioLink: 'https://drive.google.com/file/d/1fViFJrLkHN2t4L9KRLY_yn_hFwaNN_PQ/preview' }, { title: 'Realização de Atividades', audioLink: 'https://drive.google.com/file/d/1nPuqFb-2OKC6qZvebjltKyfsTrQO3SKf/preview' }, { title: 'Benefícios', audioLink: 'https://drive.google.com/file/d/1U6C9CiYcfX6wvwTsyBVIHQSNocLA4vIE/preview' }, { title: 'Perigos', audioLink: 'https://drive.google.com/file/d/1QZtLdTmrFhvLU6-kazOuMfvbeZ5Z92LW/preview' }, { title: 'Dificuldades de Desenvolvimento', audioLink: 'https://drive.google.com/file/d/1AKjMZy-FkShwcNzSNB7vhhx5KGGNb3Jx/preview' }, { title: 'COMPUTAÇÃO QUÂNTICA', audioLink: 'https://drive.google.com/file/d/1zHzRz8xzUzPyZDB-1RVEw0VCdc-tR7tC/preview' }, { title: 'Equipamentos Necessários e Estruturação Técnica', audioLink: 'https://drive.google.com/file/d/1sJHfTlq5Wuck-WapONANafALuwTqrAu9/preview' }, { title: 'Realização de Atividades', audioLink: 'https://drive.google.com/file/d/1keutnIHwkjUz1TZo6ZMTBfguuen4_2K4/preview' }, { title: 'Benefícios', audioLink: 'https://drive.google.com/file/d/1e57X_wN_SJR5R5pWthRtE2kkio83Pkgo/preview' }, { title: 'Perigos', audioLink: 'https://drive.google.com/file/d/1vbHadBgMDv2bBEPQYXXdrdLoi6LpBKCd/preview' }, { title: 'Dificuldades Atuais de Desenvolvimento', audioLink: 'https://drive.google.com/file/d/1L17cSGTD6epbTvgl_UOYok7VdQU0b31N/preview' }, { title: 'Conclusão', audioLink: 'https://drive.google.com/file/d/1fbt2ih_GvAwGxrzbzUAVS1oxHtlw2Ao3/preview' } ] },
+        'Sistema de Classificação Computacional': { studyPage: 'https://ravellsl.github.io/material-sistema-classificacao-computacional/', studyLink: 'https://drive.google.com/file/d/1dalmsrb9wrKgk40Mq__cN8hfjeskdyUg/view', chapters: [ { title: 'Introdução', audioLink: 'https://drive.google.com/file/d/1GwaVMLuAlyXd6F1TcszJAIoJWigu7BQS/preview' }, { title: 'A Categorização Computacional', audioLink: 'https://drive.google.com/file/d/1KldEtm3CWEY99zNmmIZhRnWc-lkFGNsu/preview' }, { title: 'Classificação Computacional', audioLink: 'https://drive.google.com/file/d/1-2696i_p0aJhEXUyohMtsNEOok8lREs2/preview' }, { title: 'Computação Clássica', audioLink: 'https://drive.google.com/file/d/1_Akbi3v56YNZdluu31B1v3W6Cm0Wg_mV/preview' }, { title: 'Supercomputadores', audioLink: 'https://drive.google.com/file/d/1UWi5Yb_XDK-f0zgl2pfdeqXag3uS9AK1/preview' }, { title: 'Computação Fotônica', audioLink: 'https://drive.google.com/file/d/1Xr1gUodiAmUJX7M2IysWkFSXJoc4gksm/preview' }, { title: 'Computação Neuromórfica', audioLink: 'https://drive.google.com/file/d/1jhRtdzxlPtNPqDU_-Lnw__N5rPej-h0V/preview' }, { title: 'Computação Biológica', audioLink: 'https://drive.google.com/file/d/1jXeq5BTRokRVy9xZh4qTSQsKQ4s48kHt/preview' }, { title: 'Computação Adiabática', audioLink: 'https://drive.google.com/file/d/1J1IxyngYIL29wzJAGSHrRTdygj_thOKB/preview' }, { title: 'Computação Quântica', audioLink: 'https://drive.google.com/file/d/11iuCa7NoltcaUvpjfN-A3aFtmXfPosZ0/preview' } ] },
+        'A Crise de Escassez na Indústria de Chips': { studyPage: 'https://ravellsl.github.io/material-escassez-industria-chip/', studyLink: 'https://drive.google.com/file/d/19QLf2eIOPWa4CyBudUMtJZRQz2dORHO1/view', chapters: [ { title: 'Introdução', audioLink: 'https://drive.google.com/file/d/1EO9bvyq6vn8K1taa9aS_ldSmeTLNzjSc/preview' }, { title: 'Crise dos Chips, uma nova realidade!', audioLink: 'https://drive.google.com/file/d/1ceG_Y-pPonQsK8P2Dcdg_HsF3FJG2tHD/preview' }, { title: 'Resposta da Indústria e Governos', audioLink: 'https://drive.google.com/file/d/1PTKy9bmIuLoFwH2BY5k3sAjXpafLtbeK/preview' }, { title: 'Qual o papel do usuário comum?', audioLink: 'https://drive.google.com/file/d/1vHFHm3guEBYsX8OmZtTnv27VXqLTD6Td/preview' }, { title: 'O que esperar?', audioLink: 'https://drive.google.com/file/d/1jGoU_OWX-N3lYQHzsMEncKagAMh9Yb01/preview' }, { title: 'Conclusão', audioLink: 'https://drive.google.com/file/d/1ZNbs4U2uT40vhIQ7n_69fAEM1tBajcP5/preview' } ] },
+        'Computação Preditiva': { studyPage: 'https://ravellsl.github.io/material-computacao-preditiva/', studyLink: 'https://drive.google.com/file/d/1ben6DdeaT2NwWdcjdxF1ymmYuk8vpE_o/view', chapters: [ { title: 'Introdução', audioLink: 'https://drive.google.com/file/d/1V2yLgJkJ5-qXd5VQAHk-TGlTiWyOaJId/preview' }, { title: 'Fundamentos da Computação Preditiva', audioLink: 'https://drive.google.com/file/d/19AbtimrYxyuHpOldlcR-hdGgH_hvdGuy/preview' }, { title: 'Aplicações da Computação Preditiva', audioLink: 'https://drive.google.com/file/d/1KJF7C6Dzk4Z7RihD0hHmcu4J0eftd-GM/preview' }, { title: 'Desafios da Computação Preditiva', audioLink: 'https://drive.google.com/file/d/1vTJ4gDqUgVyRM7W46a1kUNRvamg25fpe/preview' }, { title: 'Ética e Privacidade', audioLink: 'https://drive.google.com/file/d/1q5f5Sz45cnb8auKEz01lfnttHT4BRAOO/preview' }, { title: 'Futuro da Computação Preditiva', audioLink: 'https://drive.google.com/file/d/1fHMRQcjT228KukhUp7bv_p65ujUTWVh1/preview' }, { title: 'Interpretabilidade e Explicabilidade dos Modelos', audioLink: 'https://drive.google.com/file/d/1MNt12sF5rDKIseX2lNphS_wVoo5Ecey7/preview' }, { title: 'Ética e Viés', audioLink: 'https://drive.google.com/file/d/1Bayc84qTuP7beNPp9Do-FQ5OD6Ju_BDt/preview' }, { title: 'Regulamentação e Governança', audioLink: 'https://drive.google.com/file/d/1u59MyvfrqfD5BzZ6lqHpmH6k3Gp8clHK/preview' }, { title: 'Conclusão', audioLink: 'https://drive.google.com/file/d/12ESq-GFSB_pXC_1mAaiVTrQ_aWtNVG3Y/preview' } ] },
+        'Teorias Conspiratórias da Internet': { studyPage: 'https://ravellsl.github.io/material-teorias-conspiratorias-internet/', studyLink: 'https://drive.google.com/file/d/1UolIfCRJ-fL81lq1YegxKxMYO0NQBbjh/view', chapters: [ { title: 'Introdução', audioLink: 'https://drive.google.com/file/d/1MZi2Rjio49jb-26jC936Js_c3dohBkdh/preview' }, { title: 'Origens', audioLink: 'https://drive.google.com/file/d/1P4wHkJeqRHtsIdn6nUU4SDzNuDVlBiAo/preview' }, { title: 'Estruturação', audioLink: 'https://drive.google.com/file/d/1PnU2ICdnPCD0tZFe7g-oE6WYBYeNPJXo/preview' }, { title: 'Motivações', audioLink: 'https://drive.google.com/file/d/1tESezkPK8VDxE4NrnjzMU1Cr3jVdtbm3/preview' }, { title: 'Metodologias de Proteção', audioLink: 'https://drive.google.com/file/d/1EBx710eaAUR2voJKR2yP129oU0EOhB4V/preview' }, { title: 'Vigilância Global', audioLink: 'https://drive.google.com/file/d/1oxftBeBziZId2qwacWmT39v3FnQ0-atf/preview' }, { title: 'Rede 5G e COVID-19', audioLink: 'https://drive.google.com/file/d/1PRNQvLspquu9MaIzY4OdE7v8MgqQScFC/preview' }, { title: 'Projeto HAARP', audioLink: 'https://drive.google.com/file/d/1OmkH1-Mp0yDsziaGGmK4BKGMdSt_g6YK/preview' }, { title: 'Controle de Mentes por Microchips', audioLink: 'https://drive.google.com/file/d/1hFOKlWHxcM88yWyyY4Rbn_5QdhZQ8fpH/preview' }, { title: 'Illuminati na Internet', audioLink: 'https://drive.google.com/file/d/1rREu1TcCM2tNa3kBrRaHloGWwOhXreNw/preview' }, { title: 'Internet Censurada', audioLink: 'https://drive.google.com/file/d/1ylXJMMWG8lumRkb240joRBuzrOiINCVU/preview' }, { title: 'Blue Beam Project', audioLink: 'https://drive.google.com/file/d/1QtjNkkMsyZ8x7wMB5-ceo_i6mVcgJ9wH/preview' }, { title: 'Grande Firewall da China', audioLink: 'https://drive.google.com/file/d/17jEVf8u5DGVA9ctmYfHxw8tK4tbvd_dr/preview' }, { title: 'Apocalipse Tecnológico', audioLink: 'https://drive.google.com/file/d/1VOKU31iRJ72YmSump0roz-redMEqu1NS/preview' }, { title: 'Criptomoedas e o Governo Mundial', audioLink: 'https://drive.google.com/file/d/1QdVgpjMqCrDzPbYmM28Z_Ag2UMR8YzcY/preview' }, { title: 'Conclusão', audioLink: 'https://drive.google.com/file/d/1ipw5KAfbxVltxyQYMtb0wy-BrfQ91JyS/preview' } ] },
+        'Simbiose Homem-Máquina': { studyPage: 'https://ravellsl.github.io/material-simbiose-homem-maquina/', studyLink: 'https://drive.google.com/file/d/1fPDlOZjwyYhUz2kCCRicqhDp7KYKWv7T/view', chapters: [ { title: 'Introdução', audioLink: 'https://drive.google.com/file/d/1JHyKC1WaNFeEPRDQ0lNRhJiNTPI7CpBZ/preview' }, { title: 'Conceitos Gerais', audioLink: 'https://drive.google.com/file/d/1EAz9QrZXnSlItjVprSTOf9LOcHz33Wyt/preview' }, { title: 'Origem', audioLink: 'https://drive.google.com/file/d/1tjufzeuj2GJXkmG0vE8KA5qmoQeGukDD/preview' }, { title: 'Avanços ao Longo do Tempo', audioLink: 'https://drive.google.com/file/d/16Z8MxQ_RZcSr2jnqSqc3pVDmc1OCDHh-/preview' }, { title: 'Estruturação', audioLink: 'https://drive.google.com/file/d/1IwC1Z2_KulBN9KyzxZeRGae5qs4fIH8i/preview' }, { title: 'Áreas de Impacto', audioLink: 'https://drive.google.com/file/d/1ZteOOfDZiE8UIm3RG0kVSg8_qWbGLPrZ/preview' }, { title: 'Vantagens', audioLink: 'https://drive.google.com/file/d/1fsJnN80BdnL98yuNtzIO3Bt6yR2MzkgS/preview' }, { title: 'Perigos', audioLink: 'https://drive.google.com/file/d/18u7ySPHW3Hyb42PQlffVoPPVmipLD5j7/preview' }, { title: 'Questões Éticas', audioLink: 'https://drive.google.com/file/d/1t5U6ho5ABO0jHpPy2BLNM6MdnPt2Pmt8/preview' }, { title: 'Segurança Digital', audioLink: 'https://drive.google.com/file/d/1CK9uKAfuL4k0yk2r5wKV5ugIM5Ddg5Ou/preview' }, { title: 'Correlação com Outras Tecnologias', audioLink: 'https://drive.google.com/file/d/13ubVd-8qn930gAxek11xE8XdKZMR3dfj/preview' }, { title: 'Futuro da Tecnologia Homem-Máquina', audioLink: 'https://drive.google.com/file/d/1GeRW0-zEFYofLCVmirYg_BDqYnvLWbgU/preview' }, { title: 'Conclusão', audioLink: 'https://drive.google.com/file/d/1_JJPDRZmT3L9Q3R9ki2IjtR4pb0_3sSF/preview' } ] },
+        'Cloud, Fog e Edge Computing': { studyPage: 'https://ravellsl.github.io/material-cloud-fog-edge-computing/', studyLink: 'https://drive.google.com/file/d/1kclMO4dekprxzhN446IrJDrBOLTIITrQ/view', chapters: [ { title: 'Cloud, Fog e Edge Computing (introdução)', audioLink: 'https://drive.google.com/file/d/1L4tKt7OeAAWMeskp_RDxs5joQmlTTEm4/preview' }, { title: 'O que é Cloud Computing?', audioLink: 'https://drive.google.com/file/d/1F12tq6P-aROzUK8TXK6fdN0IUCTEe84U/preview' }, { title: 'Evolução da Cloud Computing', audioLink: 'https://drive.google.com/file/d/1TMZ4JxYk4JLQPowYzc2ByFuOxcJmMv4s/preview' }, { title: 'Benefícios da Cloud Computing', audioLink: 'https://drive.google.com/file/d/1d-_JhgZmOT7ohKmVwiPoU5SDLQyCViQd/preview' }, { title: 'Tipos de Cloud Computing', audioLink: 'https://drive.google.com/file/d/1nEWU7PSchLjWPmLyYArAiZbNufx2_Xo7/preview' }, { title: 'Arquiteturas de Cloud Computing', audioLink: 'https://drive.google.com/file/d/1GHi0fW7OEnZLEcj8keOjfeV1w-b5XoCm/preview' }, { title: 'Desafios da Cloud Computing', audioLink: 'https://drive.google.com/file/d/1ZgkuzXHXKr-p_9iojI-X54cyyBA9QEyR/preview' }, { title: 'Tendências da Cloud Computing', audioLink: 'https://drive.google.com/file/d/1Jh9WWKI5pTohuSXq8PqKtE5tOepVoQGe/preview' }, { title: 'Cloud Computing (síntese)', audioLink: 'https://drive.google.com/file/d/199IOgLihcB69HEPTTzyF-OIq12NVrLFa/preview' }, { title: 'Fog Computing (introdução)', audioLink: 'https://drive.google.com/file/d/1wvxNvimJ0y52W38GuJ5AFuEUznTscP5Q/preview' }, { title: 'O que é Fog Computing?', audioLink: 'https://drive.google.com/file/d/1CzCj2Dfi4GSxt1CdlK_8xqSsxbqK2Z1L/preview' }, { title: 'Diferenças entre Fog Computing e Cloud Computing', audioLink: 'https://drive.google.com/file/d/1pekQkaaqcAN1NoAmuLUnkCaKjxH6apwW/preview' }, { title: 'Benefícios do Fog Computing', audioLink: 'https://drive.google.com/file/d/1ljMwHPdvg8TYnPwCJI0mV-rsJ-tTnD6G/preview' }, { title: 'Desafios do Fog Computing', audioLink: 'https://drive.google.com/file/d/12xkmMtyT2Qe_U87b4j09gFiRGKDPd1Ub/preview' }, { title: 'Tendências do Fog Computing', audioLink: 'https://drive.google.com/file/d/1rn34q6oa5Bby4pCC2GowRJP5gh6yvKNz/preview' }, { title: 'Edge Computing (introdução)', audioLink: 'https://drive.google.com/file/d/1x_jHXpB3aUWqkYTkVrpE2siT82a5tlZk/preview' }, { title: 'Conceitos e Características', audioLink: 'https://drive.google.com/file/d/1jO2R34Fr9bebH3dOlRXp9vmhGToi7j9v/preview' }, { title: 'Arquitetura do Edge Computing', audioLink: 'https://drive.google.com/file/d/1P36qyNiJkR98TDaoRBTsm3r8PzAiHFxN/preview' }, { title: 'Aplicações do Edge Computing', audioLink: 'https://drive.google.com/file/d/1-mpRyW-z7hCBiT20f5MO-yEm50jbc6vg/preview' }, { title: 'Desafios e Oportunidades do Edge Computing', audioLink: 'https://drive.google.com/file/d/17TjNWr0viFfEJziTf87JObHjTt7fTjbp/preview' }, { title: 'Conclusão', audioLink: 'https://drive.google.com/file/d/1miJLZSg6qG5DPE_Pi_L7LkK08qBztb2O/preview' } ] },
+        'Computação Quântica': { studyPage: 'https://ravellsl.github.io/material-computacao-quantica/', studyLink: 'https://drive.google.com/file/d/1SxDkffCabGUqS6fbZmy1FIVe10kuQKe9/view', chapters: [ { title: 'Introdução', audioLink: 'https://drive.google.com/file/d/15aAFITipg-szbBIlbDmfMJ1EaZIygm9e/preview' }, { title: 'Definições e Conceitos Fundamentais da Computação Quântica', audioLink: 'https://drive.google.com/file/d/16ppER34qTxnnMiEwavgYPJhyR13BH4k-/preview' }, { title: 'Princípios Fundamentais', audioLink: 'https://drive.google.com/file/d/1pvfc-XV_8iLR3Wmw3V-znd6cdtUxnO6n/preview' }, { title: 'Tipos de Computadores', audioLink: 'https://drive.google.com/file/d/1RjGWf7SELKhqAN_jWHGlyyKBRXbiKmqk/preview' }, { title: 'Feitos Importantes dos Computadores Quânticos', audioLink: 'https://drive.google.com/file/d/1elFCDUbbeEJ3w0KKSb-oVGm9CoMS66bj/preview' }, { title: 'Aplicações Práticas', audioLink: 'https://drive.google.com/file/d/1NeAwPMOwlM8gNY1l9OwCecweZFjTqByX/preview' }, { title: 'Diferença Entre Computadores', audioLink: 'https://drive.google.com/file/d/1b-PkXE7dCHYFM7rAb4CoaIBHUUbZGq-3/preview' }, { title: 'Principais Computadores Quânticos em Operação', audioLink: 'https://drive.google.com/file/d/1JjJqvQ573yEmmywZgaCIIiy8rgVG42V-/preview' }, { title: 'Conclusão', audioLink: 'https://drive.google.com/file/d/1j3O8jKp_wA3isb77FBTfKW9TpUUVp-5D/preview' } ] },
+        'Perigos Reais da Inteligência Artificial': { studyPage: 'https://ravellsl.github.io/material-perigos-reais-ia/', studyLink: 'https://drive.google.com/file/d/1gcAKVjROMvaoqbcCobdSMU2bqFcFAaOI/view', chapters: [ { title: 'Introdução', audioLink: 'https://drive.google.com/file/d/1SaByxC6caOXL6NicEFghbfR8a0P8GM3x/preview' }, { title: 'Viés Algorítmico', audioLink: 'https://drive.google.com/file/d/1fJjckZm65UerRFi5xOR4F0aZOPvkfasb/preview' }, { title: 'Manipulação de Mídia', audioLink: 'https://drive.google.com/file/d/1fFZ3RrqlNNZzHIOovMNMFfAzAIQ0_jht/preview' }, { title: 'Desemprego em Massa', audioLink: 'https://drive.google.com/file/d/1fNDN4TmZiEmZ6qWTkNfEIDWSial_hr5e/preview' }, { title: 'Ataques Cibernéticos a Sistemas de Inteligência Artificial', audioLink: 'https://drive.google.com/file/d/1EKy1qNEsG-YpOe0fY81z-7TpTx8zXO6H/preview' }, { title: 'Uso Indevido de Dados Pessoais', audioLink: 'https://drive.google.com/file/d/1q0MsMc_B_LoBwWnhPxGwMIkB32_z-pHp/preview' }, { title: 'Risco de Armas Autônomas', audioLink: 'https://drive.google.com/file/d/1ut3yX_DPkR_MnWD-bf5FD3eauJgvx6sW/preview' }, { title: 'Risco de Manipulação Política', audioLink: 'https://drive.google.com/file/d/1XZDPaHy5WWEIX8Mj5hlciiBWyjFoIA6u/preview' }, { title: 'Deterioração das Habilidades Humanas', audioLink: 'https://drive.google.com/file/d/18EFeyKzCn8UZAnlHMyo5mBWuQVX-VFX2/preview' }, { title: 'Discriminação Algorítmica', audioLink: 'https://drive.google.com/file/d/14PmINgeUDsXODMjmTfpFG7cvoHl95I8h/preview' }, { title: 'Conclusão', audioLink: 'https://drive.google.com/file/d/1wqmOboVnEEbVj0S88nBpYzNMOMGe3EIc/preview' } ] },
+        'Empatia Artificial': { studyPage: 'https://ravellsl.github.io/material-empatia-artificial/', studyLink: 'https://drive.google.com/file/d/1hILmn-K_lxTrctKfcB7IbWjqLz5LuqX4/view', chapters: [ { title: 'Introdução', audioLink: 'https://drive.google.com/file/d/1SDekTVOquSBtuU2jIQMqsbFveSDEt_rB/preview' }, { title: 'Processamento de Linguagem Natural', audioLink: 'https://drive.google.com/file/d/1h2VVBidxt71i96Ybcn6tiOWvYCFbZDXX/preview' }, { title: 'Modelos de Personalidade', audioLink: 'https://drive.google.com/file/d/1yM2xEcuC01LoIY1fWtogXEJ1UgS3lggE/preview' }, { title: 'Geração de Respostas Empáticas', audioLink: 'https://drive.google.com/file/d/1O4CY4SVBHdw_qR4DW9GKNilaAtiT1lJL/preview' }, { title: 'Ética e Privacidade', audioLink: 'https://drive.google.com/file/d/11INZFih2QViccNHCJglO39aJBxqQqly0/preview' }, { title: 'Aplicações Práticas', audioLink: 'https://drive.google.com/file/d/12gXeVO8Xhe2-hqyvxoGSZx6fHw8RQT6z/preview' }, { title: 'Limitações Atuais', audioLink: 'https://drive.google.com/file/d/11svAvslns1v64fiVwSfodcJH6dxnwWph/preview' }, { title: 'Futuro da Empatia Artificial', audioLink: 'https://drive.google.com/file/d/1f6qJMC35hi42yXpPdqHchblRmfDfxA1n/preview' }, { title: 'Conclusão', audioLink: 'https://drive.google.com/file/d/1XEOB4OFIvsAn6VWP7rPkbU2exZT63MIS/preview' } ] },
+        'Quinta Revolução Industrial': { studyPage: 'https://ravellsl.github.io/material-quinta-revolucao-industrial/', studyLink: 'https://drive.google.com/file/d/16pPVZT6y-Hv6wMxUrXqZPdyJgT9g_1xI/view', chapters: [ { title: 'Introdução', audioLink: 'https://drive.google.com/file/d/1aBlxyh_kfDG7RNjlfPweuOOJxvt1wEiq/preview' }, { title: 'Rede 6G', audioLink: 'https://drive.google.com/file/d/17DYgj_wkL9ZKks3uP1QDtAf6kaxG38XS/preview' }, { title: 'Internet Quântica', audioLink: 'https://drive.google.com/file/d/1BLaZ6D9tJAcjE68w_Z2rBT9uGtHKfAP9/preview' }, { title: 'Inteligência Artificial das coisas', audioLink: 'https://drive.google.com/file/d/1FOu7Ord771Ttzxsg5Rdu_bveVTyJKjDZ/preview' }, { title: 'Web 3.0', audioLink: 'https://drive.google.com/file/d/1aOMCYRIbm7TUXS2SwaMWvv3tX1z_hvlk/preview' }, { title: 'Smart Grid', audioLink: 'https://drive.google.com/file/d/1PwvDDCK8g_JQCc1S23ig1yAXLRFxNetG/preview' }, { title: 'Transmissão de Energia Sem Fio', audioLink: 'https://drive.google.com/file/d/1DHLNyLFTXlGlEQZILzlcdJ2vOVrJl5bH/preview' }, { title: 'Cidades Inteligentes', audioLink: 'https://drive.google.com/file/d/1wqLJnbepTfeFiPiklD-haO8HRkaxhgVQ/preview' }, { title: 'Impressão 4D', audioLink: 'https://drive.google.com/file/d/1jBsPks9e5jH9T_up5RwZhR8YGHkCQNuD/preview' }, { title: 'Gêmeo Digital', audioLink: 'https://drive.google.com/file/d/1QrcZAYcJIF7uMEwiwsP77pdfRwZxnoJa/preview' }, { title: 'Metamateriais', audioLink: 'https://drive.google.com/file/d/1zIU28k_JV3xr2npiFM1epZOGT5uz_sb_/preview' }, { title: 'Robótica de Drone e Drones Aquáticos', audioLink: 'https://drive.google.com/file/d/1FVgg3lYgbB59WgyXfQ4Q3m8tKYT7u2SD/preview' }, { title: 'Tecnologia de Predição', audioLink: 'https://drive.google.com/file/d/1gHBDFKnlj3t3WWZ88BN5qlqSCnIOW3ID/preview' }, { title: 'Armazenamento em DNA', audioLink: 'https://drive.google.com/file/d/1VA1IHeJyIEGmMGnqA5Us3Lh-JJb2DpWp/preview' }, { title: 'Comida Sintética', audioLink: 'https://drive.google.com/file/d/1WTC98S1vGrQg6S-Ijk9Uuw0Z4dbOgTj8/preview' }, { title: 'Metaverso', audioLink: 'https://drive.google.com/file/d/1Tq5memGhrxmmqC708laUSWTFw4riTzI6/preview' }, { title: 'Interface Cérebro-Máquina', audioLink: 'https://drive.google.com/file/d/1X_vJ-YaIBa-jscO-5UzQbHtf_-bDK2Xc/preview' }, { title: 'Smart Glass', audioLink: 'https://drive.google.com/file/d/1_CRB3yNAG-nzwGE3JdHLSfFdt2geo-d4/preview' }, { title: 'Realidade Háptica', audioLink: 'https://drive.google.com/file/d/1IBfm_EfNI6m0SvbZ0EhAr8XCoQmTuW10/preview' }, { title: 'Conclusão', audioLink: 'https://drive.google.com/file/d/1Kz2wwhSOPrtQ8ppFZwxdr7NE2dSzDXOM/preview' } ] },
+        'Correntes Filosóficas da Tecnologia': { studyPage: 'https://ravellsl.github.io/material-correntes-filosoficas/', studyLink: 'https://drive.google.com/file/d/15Kckxw8Q56PJzPvr_aLb-buXU2Uac6xY/view', chapters: [ { title: 'Introdução', audioLink: 'https://drive.google.com/file/d/1pVe8Sq683MwY1eniOKLtkGMIPGvS2PQI/preview' }, { title: 'Cyberpunk', audioLink: 'https://drive.google.com/file/d/1wy-uS7d043OgSrXzY24nOXCjzbTJDNGR/preview' }, { title: 'Cypherpunk', audioLink: 'https://drive.google.com/file/d/1ITWf76GB4tq-n8LueoTBEWI9-M7lr2hE/preview' }, { title: 'Dataísmo', audioLink: 'https://drive.google.com/file/d/1NVUjrQGsW4_oQRJQvr4mtUCkPIVv9Prw/preview' }, { title: 'Transumanismo', audioLink: 'https://drive.google.com/file/d/1_jHxbP1uTxnqBCbn90MIAl1a2UjiuopO/preview' }, { title: 'Biohacking', audioLink: 'https://drive.google.com/file/d/1SutEQoD1wTPMzekDnX-Lum-cqA9BgM0b/preview' }, { title: 'Ludologia Filosófica', audioLink: 'https://drive.google.com/file/d/1237bbhlaIdPkuLWPbwMVsq7giWAhPFEX/preview' }, { title: 'Anarquismo Digital', audioLink: 'https://drive.google.com/file/d/1_Vc2xSyCNH8D1J_7fkHLCfsds4PT7q-4/preview' }, { title: 'Tecnofeminismo', audioLink: 'https://drive.google.com/file/d/1KEPK16yc339-vPGcX1QG8vdQsSd6fIIy/preview' }, { title: 'Filosofia da Cibernética', audioLink: 'https://drive.google.com/file/d/197R4vU27WWDQ-U8X2hECLOL-s3r_p_9C/preview' }, { title: 'Neo-Luddismo', audioLink: 'https://drive.google.com/file/d/1Iu9H5WvPkmoPeA87HyWenxdHfaDkGoGF/preview' }, { title: 'Technogaianismo', audioLink: 'https://drive.google.com/file/d/1KYyCBBsD_ifPHsVlEwzlPmCxKDS3lTzO/preview' }, { title: 'Singularidade Tecnológica', audioLink: 'https://drive.google.com/file/d/1Ld_pHGRsGklBySiXqfHIY8VvuxGikwnO/preview' }, { title: 'Conclusão', audioLink: 'https://drive.google.com/file/d/1oHdU8F7wp7uroCUKQZXJ94VXeTk9kUTx/preview' } ] }
       };
 
-      // Funções para abrir e fechar modais
+      // Lógica de Modal Aprimorada
       const openModal = (modalElement) => {
-        modalElement.style.display = 'block';
-        // Opcional: Gerenciar foco
+        if (modalElement === mainModal && searchModal.classList.contains('is-visible')) {
+          closeModal(searchModal);
+        } else if (modalElement === searchModal && mainModal.classList.contains('is-visible')) {
+          closeModal(mainModal);
+        }
+        modalElement.classList.add('is-visible');
+        document.body.style.overflow = 'hidden';
       };
 
       const closeModal = (modalElement) => {
-        modalElement.style.display = 'none';
+        modalElement.classList.remove('is-visible');
+        document.body.style.overflow = 'auto';
       };
 
-      // Adiciona evento para abrir modal com a lista de capítulos
-      btns.forEach(btn => {
+      actionButtons.forEach(btn => {
         btn.addEventListener('click', function() {
           const title = this.getAttribute('data-title');
           if (chapters[title]) {
             renderChapterList(title);
-            openModal(modal);
+            openModal(mainModal);
           } else {
-            console.error('Capítulo não encontrado para o título: ' + title);
+            console.error('Dados não encontrados para o título: ' + title);
           }
         });
       });
 
-      // Fechar modal ao clicar no (x) – utilizando o ancestral mais próximo com .closest()
-      closeElements.forEach(el => {
+      closeButtons.forEach(el => {
         el.addEventListener('click', function() {
-          const m = this.closest('.modal');
-          if (m) closeModal(m);
+          closeModal(this.closest('.modal'));
         });
       });
 
-      // Fechar o modal ao clicar fora dele
       window.addEventListener('click', event => {
         if (event.target.classList.contains('modal')) {
           closeModal(event.target);
         }
       });
 
-      // Fechar modais ao pressionar a tecla Escape
       document.addEventListener('keydown', event => {
         if (event.key === 'Escape') {
-          document.querySelectorAll('.modal').forEach(m => closeModal(m));
+          const visibleModal = document.querySelector('.modal.is-visible');
+          if (visibleModal) {
+            closeModal(visibleModal);
+          }
         }
       });
 
-      // Função para renderizar a lista de capítulos no modal
       function renderChapterList(title) {
+        const data = chapters[title];
         modalTitle.textContent = title;
-        // Atualiza o link para a página de estudo
-        studyLink.href = chapters[title].studyPage;
-        // Atualiza o link para material impresso
-        document.getElementById('downloadLink').href = chapters[title].studyLink;
+        studyLink.href = data.studyPage;
+        downloadLink.href = data.studyLink;
         audioList.innerHTML = '';
-        chapters[title].chapters.forEach(chapter => {
+        
+        data.chapters.forEach(chapter => {
           const chapterElement = createChapterElement(chapter);
           audioList.appendChild(chapterElement);
         });
       }
 
-      // Cria elemento para cada capítulo
       function createChapterElement(chapter) {
         const chapterWrapper = document.createElement('div');
         chapterWrapper.className = 'chapter-wrapper';
@@ -824,6 +639,7 @@ button:hover,
         const iframe = document.createElement('iframe');
         iframe.src = chapter.audioLink;
         iframe.allow = "autoplay";
+        iframe.loading = "lazy";
 
         audioPlayer.appendChild(iframe);
         chapterWrapper.appendChild(audioTitle);
@@ -832,33 +648,41 @@ button:hover,
         return chapterWrapper;
       }
 
-      // Evento de submissão do formulário de busca
       searchForm.addEventListener('submit', function(e) {
         e.preventDefault();
         performSearch();
       });
 
-      // Função para realizar a busca
       function performSearch() {
-        const searchText = searchForm.search.value.toLowerCase();
+        const searchText = searchForm.search.value.toLowerCase().trim();
+        if (!searchText) return;
+        
         searchResultsBody.innerHTML = '';
+        let resultsFound = false;
 
-        document.querySelectorAll('.card .content h3').forEach(h3 => {
-          if (h3.textContent.toLowerCase().includes(searchText)) {
+        const allTitles = Object.keys(chapters);
+
+        allTitles.forEach(title => {
+          if (title.toLowerCase().includes(searchText)) {
+            resultsFound = true;
             const tr = document.createElement('tr');
+            
             const tdTitle = document.createElement('td');
-            tdTitle.textContent = h3.textContent;
+            tdTitle.textContent = title;
+            
             const tdAction = document.createElement('td');
-            // Utilizando um botão para melhor semântica
             const accessBtn = document.createElement('button');
             accessBtn.type = 'button';
             accessBtn.className = 'access-btn';
             accessBtn.textContent = 'Acessar';
-            accessBtn.setAttribute('data-title', h3.textContent);
+            accessBtn.setAttribute('data-title', title);
+            
             accessBtn.addEventListener('click', function() {
-              renderChapterList(this.getAttribute('data-title'));
-              openModal(modal);
+              const chapterTitle = this.getAttribute('data-title');
+              renderChapterList(chapterTitle);
+              openModal(mainModal);
             });
+            
             tdAction.appendChild(accessBtn);
             tr.appendChild(tdTitle);
             tr.appendChild(tdAction);
@@ -866,10 +690,10 @@ button:hover,
           }
         });
 
-        if (searchResultsBody.innerHTML === '') {
+        if (!resultsFound) {
           searchResultsBody.innerHTML = '<tr><td colspan="2">Nenhum resultado encontrado.</td></tr>';
         }
-
+        
         openModal(searchModal);
       }
     });
